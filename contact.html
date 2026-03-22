@@ -137,7 +137,10 @@
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .contact-hero-content h1 { font-size: 1.9rem; }
-            .contact-cards { grid-template-columns: 1fr 1fr; max-width: 500px; }
+            .contact-cards { grid-template-columns: 1fr; max-width: 100%; gap: 1rem; }
+            .contact-card { padding: 1.2rem 1.5rem; display: flex; flex-direction: row; align-items: center; text-align: left; gap: 1.2rem; }
+            .contact-card-icon { margin: 0; flex-shrink: 0; width: 48px; height: 48px; }
+            .contact-card h4 { margin-bottom: 0.2rem; }
             .contact-details-grid { grid-template-columns: 1fr; }
             .contact-map-full { height: 300px; }
         }
