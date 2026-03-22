@@ -403,20 +403,21 @@ footer { background: var(--dark-green); color: white; padding: 3rem 0; }
     .eco-pillars, .pillars { grid-template-columns: 1fr; }
     .eng-grid { grid-template-columns: repeat(2, 1fr); }
     .eng-stats { gap: 2.5rem; }
-    .footer-content { grid-template-columns: 1fr; text-align: center; padding: 0 1.5rem; gap: 2rem; }
-    .footer-paired { grid-template-columns: 1fr; text-align: left; }
-    .footer-paired > h5:nth-child(1) { order: 1; text-align: left; }
-    .footer-paired > div:nth-child(3) { order: 2; }
-    .footer-paired > div:nth-child(5) { order: 3; }
-    .footer-paired > div:nth-child(7) { order: 4; }
-    .footer-paired > h5:nth-child(2) { order: 5; text-align: left; margin-top: 1rem; }
-    .footer-paired > div:nth-child(4) { order: 6; }
-    .footer-paired > div:nth-child(6) { order: 7; }
-    .footer-paired > div:nth-child(8) { order: 8; }
-    .footer-contact-item { flex-wrap: wrap; word-break: break-word; }
-    .footer-section { text-align: left; }
-    .footer-hours { text-align: left; }
-    .footer-badge { justify-content: flex-start; }
+    .footer-content { grid-template-columns: 1fr; text-align: center; padding: 0 1rem; gap: 2rem; width: 100%; }
+    .footer-paired { grid-template-columns: 1fr; text-align: center; width: 100%; }
+    .footer-paired > h5:nth-child(1) { order: 1; text-align: center; }
+    .footer-paired > div:nth-child(3) { order: 2; justify-content: center; }
+    .footer-paired > div:nth-child(5) { order: 3; justify-content: center; }
+    .footer-paired > div:nth-child(7) { order: 4; justify-content: center; }
+    .footer-paired > h5:nth-child(2) { order: 5; text-align: center; margin-top: 1rem; }
+    .footer-paired > div:nth-child(4) { order: 6; justify-content: center; }
+    .footer-paired > div:nth-child(6) { order: 7; justify-content: center; }
+    .footer-paired > div:nth-child(8) { order: 8; justify-content: center; }
+    .footer-contact-item { flex-wrap: wrap; word-break: break-word; justify-content: center; }
+    .footer-section { text-align: center; width: 100%; }
+    .footer-hours { text-align: center; }
+    .footer-badge { justify-content: center; }
+    .footer-bottom { margin: 0; padding: 1.5rem 1rem; }
     .page-header h1 { font-size: 2.2rem; }
 }
 
