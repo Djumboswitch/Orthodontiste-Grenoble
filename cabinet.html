@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Cabinet — Cabinet d'Orthodontie des Docteurs PRÉVÉ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="https://files.sbcdnsb.com/images/w3hWypnyU2RCzF75YP9NGg/businesses/1746643578/vwxuuh6cru_1617620722.png" alt="Logo">
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="cabinet.html" class="active">Le Cabinet</a></li>
+            <li><a href="equipe.html">L'Équipe</a></li>
+            <li><a href="traitements.html">Traitements</a></li>
+            <li><a href="engagements.html">Engagements Durables</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
+        <div class="nav-flags">
+            <div class="nav-lang-btn" onclick="toggleTranslate()" title="Translate to English">
+                <img src="img/flag-uk.png.svg.png" alt="English">
+            </div>
+            <div class="nav-lang-btn" onclick="toggleTranslateES()" title="Traducir al español">
+                <img src="img/flag-es.png.png" alt="Español">
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="inner-hero">
+        <div class="inner-hero-bg" style="background-image: url('img/cabinet.jpg'); background-position: center 40%;"></div>
+        <div class="inner-hero-overlay"></div>
+        <div class="inner-hero-content reveal">
+            <span class="hero-eyebrow">Grenoble — 38000</span>
+            <h1>Le Cabinet</h1>
+            <p class="hero-sub">Orthodontie moderne &amp; écoresponsable au cœur de Grenoble</p>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="cab-intro-section">
+        <div class="cab-intro-inner reveal">
+            <span class="section-subtitle">Notre approche</span>
+            <h2>Un cabinet pensé pour vous</h2>
+            <p>Au cabinet des Docteurs PRÉVÉ, chaque détail a été conçu pour que votre expérience — de la prise de rendez-vous jusqu'à la fin du traitement — soit simple, rassurante et de la plus haute qualité.</p>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="cab-features-section">
+        <div class="cab-feat-list">
+
+            <!-- 1. Valeurs -->
+            <div class="cab-feat reveal">
+                <div class="cab-feat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </div>
+                <div class="cab-feat-body">
+                    <h3>Nos valeurs</h3>
+                    <p>Excellence technique, bienveillance et engagement écoresponsable guident chacun de nos gestes au quotidien. Nous traitons chaque patient avec l'exigence que nous nous appliquons à nous-mêmes.</p>
+                </div>
+            </div>
+
+            <!-- 2. Équipement -->
+            <div class="cab-feat reveal">
+                <div class="cab-feat-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h3M7 12h2M14 8l-2 4h4l-2 4"/></svg>
+                </div>
+                <div class="cab-feat-body">
+                    <h3>Équipement moderne pour votre confort</h3>
+                    <p>Scanner intraoral, radiographie numérique basse dose, impression 3D : nos technologies de pointe garantissent des diagnostics précis et des traitements plus rapides, plus confortables. Votre bouche ne sera plus jamais encombrée d'empreintes.</p>
+                </div>
+            </div>
+
+            <!-- 3. Temps -->
+            <div class="cab-feat reveal">
+                <div class="cab-feat-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="cab-feat-body">
+                    <h3>Votre temps est précieux</h3>
+                    <p>Nos plannings sont organisés pour être ponctuels : l'attente en salle est réduite au strict minimum. Le suivi à distance limit également le nombre de visites nécessaires tout au long du traitement.</p>
+                </div>
+            </div>
+
+            <!-- 4. Sécurité -->
+            <div class="cab-feat reveal">
+                <div class="cab-feat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 3h18v13a2 2 0 01-2 2H5a2 2 0 01-2-2V3z"/><path d="M3 9h18"/><circle cx="9" cy="15" r="1"/><circle cx="12" cy="15" r="1"/><circle cx="15" cy="15" r="1"/></svg>
+                </div>
+                <div class="cab-feat-body">
+                    <h3>Sécurité &amp; hygiène irréprochables</h3>
+                    <p>Chaque instrument est stérilisé par autoclave à vapeur selon des protocoles qui dépassent les exigences réglementaires. Votre sécurité est une priorité non négociable à chaque consultation.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-paired">
+                <h5>Comment nous rejoindre</h5>
+                <h5>Contact</h5>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚲</span>
+                    <div><strong>Vélo &amp; Trottinette</strong><span>Parking sécurisé au cabinet</span></div>
+                </div>
+                <div class="footer-contact-item">📞 <a href="tel:0476463805">04 76 46 38 05</a></div>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚌</span>
+                    <div><strong>Bus C1 — Tram A, B, C</strong><span>Arrêt Alsace-Lorraine</span></div>
+                </div>
+                <div class="footer-contact-item">✉️ <a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a></div>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚗</span>
+                    <div><strong>Voiture</strong><span>Parking K'Store — Av. Philippeville</span></div>
+                </div>
+                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><span>3 Avenue Alsace-Lorraine<br>38000 Grenoble</span></div>
+            </div>
+            <div class="footer-section">
+                <h5>Horaires</h5>
+                <ul class="footer-hours">
+                    <li data-days="1">Lundi : 9h–13h / 14h–18h30</li>
+                    <li data-days="2,3">Mardi–Mercredi : 9h–13h / 14h–18h</li>
+                    <li data-days="4">Jeudi : Fermé</li>
+                    <li data-days="5">Vendredi : 9h–13h30 / 15h–18h30</li>
+                    <li data-days="6,0">Samedi–Dimanche : Fermé</li>
+                </ul>
+            </div>
+            <div class="footer-badge"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ. Tous droits réservés.</p></div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+
+        // Reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+    <script>
+        function toggleTranslate() {
+            var url = window.location.href;
+            if (url.includes('translate.google')) {
+                var match = url.match(/[?&]u=([^&]+)/);
+                if (match) { window.location.href = decodeURIComponent(match[1]); return; }
+            }
+            window.location.href = 'https://translate.google.com/translate?sl=fr&tl=en&u=' + encodeURIComponent(url);
+        }
+        function toggleTranslateES() {
+            var url = window.location.href;
+            if (url.includes('translate.google')) {
+                var match = url.match(/[?&]u=([^&]+)/);
+                if (match) { window.location.href = decodeURIComponent(match[1]); return; }
+            }
+            window.location.href = 'https://translate.google.com/translate?sl=fr&tl=es&u=' + encodeURIComponent(url);
+        }
+    </script>
+    <script>
+        (function() {
+            var today = new Date().getDay();
+            document.querySelectorAll('.footer-hours li').forEach(function(li) {
+                var days = li.getAttribute('data-days').split(',').map(Number);
+                if (days.indexOf(today) !== -1) li.classList.add('today');
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40">
+  <defs>
+    <clipPath id="bounds">
+      <rect width="60" height="40"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#bounds)">
+    <!-- Fond bleu -->
+    <rect width="60" height="40" fill="#012169"/>
+
+    <!-- Croix de St-André (diagonales blanches larges) -->
+    <line x1="0" y1="0" x2="60" y2="40" stroke="white" stroke-width="13.33"/>
+    <line x1="60" y1="0" x2="0" y2="40" stroke="white" stroke-width="13.33"/>
+
+    <!-- Croix de St-Patrick (diagonales rouges décalées) -->
+    <!-- Diagonale haut-gauche vers bas-droit : rouge côté bas -->
+    <polygon points="0,0 8.33,0 60,33.33 60,40 51.67,40 0,6.67" fill="#C8102E"/>
+    <!-- Diagonale haut-droit vers bas-gauche : rouge côté bas -->
+    <polygon points="60,0 51.67,0 0,33.33 0,40 8.33,40 60,6.67" fill="#C8102E"/>
+
+    <!-- Croix de St-Georges (barre horizontale blanche) -->
+    <rect x="0" y="13.33" width="60" height="13.33" fill="white"/>
+    <!-- Croix de St-Georges (barre verticale blanche) -->
+    <rect x="22" y="0" width="16" height="40" fill="white"/>
+
+    <!-- Croix de St-Georges (barre horizontale rouge) -->
+    <rect x="0" y="15.83" width="60" height="8.33" fill="#C8102E"/>
+    <!-- Croix de St-Georges (barre verticale rouge) -->
+    <rect x="24.17" y="0" width="11.67" height="40" fill="#C8102E"/>
+  </g>
+</svg>

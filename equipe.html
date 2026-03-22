@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Équipe — Cabinet d'Orthodontie des Docteurs PRÉVÉ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="https://files.sbcdnsb.com/images/w3hWypnyU2RCzF75YP9NGg/businesses/1746643578/vwxuuh6cru_1617620722.png" alt="Logo">
+            
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="cabinet.html">Le Cabinet</a></li>
+            <li><a href="equipe.html" class="active">L'Équipe</a></li>
+            <li><a href="traitements.html">Traitements</a></li>
+            <li><a href="engagements.html">Engagements Durables</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
+        <div class="nav-flags">
+            <div class="nav-lang-btn" onclick="toggleTranslate()" title="Translate to English">
+                <img src="img/flag-uk.png.svg.png" alt="English">
+            </div>
+            <div class="nav-lang-btn" onclick="toggleTranslateES()" title="Traducir al español">
+                <img src="img/flag-es.png.png" alt="Español">
+            </div>
+        </div>
+    </nav>
+
+    <section class="inner-hero">
+        <div class="inner-hero-bg" style="background-image: url('img/hero-equipe.jpg'); background-position: center 55%;"></div>
+        <div class="inner-hero-overlay"></div>
+        <div class="inner-hero-content">
+            <span class="hero-eyebrow">Notre équipe</span>
+            <h1>L'Équipe</h1>
+            <p class="hero-sub">Des professionnels dévoués à votre sourire</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-container">
+            <h2 style="margin-bottom: 3rem;">Les Praticiens</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo"><img src="img/dr-mh.jpg" alt="Dr Marie-Hélène Prévé"></div>
+                    <h3 class="team-name">Dr Marie-Hélène Prévé</h3>
+                    <div class="team-role">Spécialiste qualifiée en orthodontie</div>
+                    <p class="team-desc">Spécialiste qualifiée en orthopédie dento-faciale avec plus de 30 ans d'expérience et une expertise reconnue en orthodontie linguale.</p>
+                    <ul class="credentials">
+                        <li>Inscription à l'ordre n° 38 42695</li>
+                        <li>Certificat d'études cliniques spécialisées mention orthodontie, Paris VII 1995</li>
+                        <li>CES d'histologie-embryologie, Paris V 1990</li>
+                        <li>CES d'orthopédie dento-faciale, Paris V 1991</li>
+                        <li>DU d'orthodontie linguale, Lyon 2005</li>
+                    </ul>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo"><img src="img/dr-simon.jpg" alt="Dr Simon Prévé"></div>
+                    <h3 class="team-name">Dr Simon Prévé</h3>
+                    <div class="team-role">Spécialiste qualifié en orthodontie</div>
+                    <p class="team-desc">Spécialiste qualifié avec formation européenne de haut niveau, actif dans la recherche scientifique et membre de sociétés d'orthodontie internationales.</p>
+                    <ul class="credentials">
+                        <li>Inscription à l'ordre n° 38 2819</li>
+                        <li>Master Européen en Orthodontie, Madrid 2022</li>
+                        <li><a href="https://pubmed.ncbi.nlm.nih.gov/35752557/" target="_blank" rel="noopener" style="color: var(--medium-green); text-decoration: underline;">Auteur de publication scientifique</a></li>
+                        <li>Membre de la Société Française d'Orthopédie Dento-Faciale</li>
+                        <li>Membre de la Société Espagnole d'Orthodontie</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 5rem; margin-bottom: 3rem;">L'Équipe au Quotidien</h2>
+            <div class="team-grid-secondary">
+                <div class="team-card secondary">
+                    <div class="team-photo"><img src="img/adeline.jpg" alt="Adeline"></div>
+                    <h3 class="team-name">Adeline</h3>
+                    <div class="team-role">Assistante Dentaire</div>
+                    <p class="team-desc">Assistante dentaire qualifiée, bienveillante et rigoureuse au service de votre confort.</p>
+                </div>
+                <div class="team-card secondary">
+                    <div class="team-photo"><img src="img/estelle.jpg" alt="Estelle"></div>
+                    <h3 class="team-name">Estelle</h3>
+                    <div class="team-role">Secrétaire Médicale</div>
+                    <p class="team-desc">À votre écoute pour organiser vos rendez-vous et répondre à toutes vos questions.</p>
+                </div>
+                <div class="team-card secondary">
+                    <div class="team-photo"><img src="img/celine.jpg" alt="Céline"></div>
+                    <h3 class="team-name">Céline</h3>
+                    <div class="team-role">Assistante Dentaire</div>
+                    <p class="team-desc">Assistante dentaire qualifiée, présente pour votre bien-être tout au long du traitement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-paired">
+                <h5>Comment nous rejoindre</h5>
+                <h5>Contact</h5>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚲</span>
+                    <div><strong>Vélo &amp; Trottinette</strong><span>Parking sécurisé au cabinet</span></div>
+                </div>
+                <div class="footer-contact-item">📞 <a href="tel:0476463805">04 76 46 38 05</a></div>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚌</span>
+                    <div><strong>Bus C1 — Tram A, B, C</strong><span>Arrêt Alsace-Lorraine</span></div>
+                </div>
+                <div class="footer-contact-item">✉️ <a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a></div>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚗</span>
+                    <div><strong>Voiture</strong><span>Parking K'Store — Av. Philippeville</span></div>
+                </div>
+                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><span>3 Avenue Alsace-Lorraine<br>38000 Grenoble</span></div>
+            </div>
+            <div class="footer-section">
+                <h5>Horaires</h5>
+                <ul class="footer-hours">
+                    <li data-days="1">Lundi : 9h–13h / 14h–18h30</li>
+                    <li data-days="2,3">Mardi–Mercredi : 9h–13h / 14h–18h</li>
+                    <li data-days="4">Jeudi : Fermé</li>
+                    <li data-days="5">Vendredi : 9h–13h30 / 15h–18h30</li>
+                    <li data-days="6,0">Samedi–Dimanche : Fermé</li>
+                </ul>
+            </div>
+            <div class="footer-badge"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ. Tous droits réservés.</p></div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+    </script>
+    <script>
+        function toggleTranslate() {
+            var url = window.location.href;
+            // If already going through Google Translate proxy, go back to original
+            if (url.includes('translate.google')) {
+                var match = url.match(/[?&]u=([^&]+)/);
+                if (match) { window.location.href = decodeURIComponent(match[1]); return; }
+            }
+            window.location.href = 'https://translate.google.com/translate?sl=fr&tl=en&u=' + encodeURIComponent(url);
+        }
+
+        function toggleTranslateES() {
+            var url = window.location.href;
+            if (url.includes('translate.google')) {
+                var match = url.match(/[?&]u=([^&]+)/);
+                if (match) { window.location.href = decodeURIComponent(match[1]); return; }
+            }
+            window.location.href = 'https://translate.google.com/translate?sl=fr&tl=es&u=' + encodeURIComponent(url);
+        }
+    </script>
+    <script>
+        (function() {
+            var today = new Date().getDay();
+            document.querySelectorAll('.footer-hours li').forEach(function(li) {
+                var days = li.getAttribute('data-days').split(',').map(Number);
+                if (days.indexOf(today) !== -1) li.classList.add('today');
+            });
+        })();
+    </script>
+</body>
+</html>
