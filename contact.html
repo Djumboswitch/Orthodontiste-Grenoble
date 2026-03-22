@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Cabinet d'Orthodontie des Docteurs PRÉVÉ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── HERO CONTACT ── */
+        .contact-hero {
+            position: relative;
+            height: 65vh;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .contact-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('img/hero-cabinet.jpg');
+            background-size: cover;
+            background-position: center 40%;
+            transform: scale(1.04);
+            transition: transform 8s ease;
+        }
+        .contact-hero:hover .contact-hero-bg { transform: scale(1); }
+        .contact-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg,
+                rgba(30, 86, 49, 0.80) 0%,
+                rgba(30, 86, 49, 0.55) 55%,
+                rgba(201, 169, 110, 0.30) 100%);
+        }
+        .contact-hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            animation: fadeInUp 0.9s ease 0.2s both;
+        }
+        .contact-hero-content .hero-eyebrow {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .contact-hero-content h1 {
+            color: white;
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 0.7rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+        .contact-hero-content .hero-sub {
+            color: rgba(255,255,255,0.88);
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 2.2rem;
+        }
+        .contact-hero-content .btn-primary {
+            font-size: 1rem;
+            padding: 0.95rem 2.4rem;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+        }
+
+        /* ── INFOS CARDS ── */
+        .contact-cards-section { background: white; padding: 4rem 2rem; }
+        .contact-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .contact-card {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 2.2rem 1.8rem;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 14px rgba(30,86,49,0.07);
+        }
+        .contact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(30,86,49,0.13); }
+        .contact-card-icon {
+            width: 58px; height: 58px;
+            background: linear-gradient(135deg, var(--medium-green), var(--light-green));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.2rem;
+        }
+        .contact-card-icon svg { width: 28px; height: 28px; stroke: white; fill: none; stroke-width: 2; }
+        .contact-card h4 { color: var(--dark-green); font-size: 1rem; margin-bottom: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Inter', sans-serif; font-weight: 700; }
+        .contact-card p, .contact-card a { font-size: 1rem; color: var(--text-light); line-height: 1.6; text-decoration: none; }
+        .contact-card a { color: var(--medium-green); font-weight: 500; }
+        .contact-card a:hover { color: var(--gold); }
+
+        /* ── INFOS + HORAIRES + ACCÈS ── */
+        .contact-details-section { background: #F5F2ED; }
+        .contact-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; max-width: 1100px; margin: 0 auto; }
+        .contact-col h3 { margin-bottom: 1.5rem; font-size: 1.6rem; }
+        .info-block { margin-bottom: 2rem; }
+        .info-block h4 { color: var(--medium-green); font-size: 1rem; margin-bottom: 0.7rem; }
+        .info-block p { font-size: 0.95rem; color: var(--text-light); line-height: 1.6; }
+        .hours-table { width: 100%; margin: 0.5rem 0; border-collapse: collapse; font-size: 0.9rem; }
+        .hours-table th, .hours-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border-light); }
+        .hours-table th { background: white; font-weight: 600; color: var(--dark-green); }
+        .hours-table td { color: var(--text-light); background: white; }
+        .hours-table tr:last-child td { border-bottom: none; }
+        .access-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.2rem; }
+        .access-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--medium-green), var(--light-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .access-icon svg { width: 22px; height: 22px; stroke: white; fill: none; stroke-width: 2; }
+        .access-text h5 { color: var(--dark-green); margin-bottom: 0.2rem; font-size: 0.95rem; }
+        .access-text p { font-size: 0.85rem; color: var(--text-light); }
+
+        /* ── FORMULAIRE ── */
+        .contact-form-section { background: white; }
+        .contact-form-wrapper { max-width: 780px; margin: 0 auto; }
+        .contact-form-wrapper h2 { text-align: center; margin-bottom: 0.5rem; }
+        .contact-form-wrapper .section-subtitle { text-align: center; display: block; margin-bottom: 3rem; }
+
+        /* ── MAP PLEINE LARGEUR ── */
+        .contact-map-full {
+            display: block;
+            width: 100%;
+            height: 420px;
+            position: relative;
+        }
+        .contact-map-full iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .contact-hero-content h1 { font-size: 1.9rem; }
+            .contact-cards { grid-template-columns: 1fr 1fr; max-width: 500px; }
+            .contact-details-grid { grid-template-columns: 1fr; }
+            .contact-map-full { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="https://files.sbcdnsb.com/images/w3hWypnyU2RCzF75YP9NGg/businesses/1746643578/vwxuuh6cru_1617620722.png" alt="Logo">
+            
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="cabinet.html">Le Cabinet</a></li>
+            <li><a href="equipe.html">L'Équipe</a></li>
+            <li><a href="traitements.html">Traitements</a></li>
+            <li><a href="engagements.html">Engagements Durables</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
+        <div class="nav-flags">
+            <div class="nav-lang-btn" onclick="toggleTranslate()" title="Translate to English">
+                <img src="img/flag-uk.png.svg.png" alt="English">
+            </div>
+            <div class="nav-lang-btn" onclick="toggleTranslateES()" title="Traducir al español">
+                <img src="img/flag-es.png.png" alt="Español">
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="contact-hero">
+        <div class="contact-hero-bg"></div>
+        <div class="contact-hero-overlay"></div>
+        <div class="contact-hero-content">
+            <span class="hero-eyebrow">Grenoble — 38000</span>
+            <h1>Contactez le Cabinet d'Orthodontie<br>des Docteurs Prévé</h1>
+            <p class="hero-sub">Notre équipe est à votre écoute du lundi au vendredi</p>
+            <a href="#formulaire" class="btn btn-primary">Prendre Rendez-vous</a>
+        </div>
+    </section>
+
+    <!-- ═══ CARTES CONTACT ═══ -->
+    <section class="contact-cards-section">
+        <div class="contact-cards">
+            <div class="contact-card reveal">
+                <div class="contact-card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 14a16 16 0 006.09 6.09l.41-.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <h4>Téléphone</h4>
+                <p><a href="tel:0476463805">04 76 46 38 05</a></p>
+            </div>
+            <div class="contact-card reveal">
+                <div class="contact-card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h4>Adresse</h4>
+                <p>3 Avenue Alsace-Lorraine<br>38000 Grenoble</p>
+            </div>
+            <div class="contact-card reveal">
+                <div class="contact-card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <h4>Email</h4>
+                <p><a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a></p>
+            </div>
+            <div class="contact-card reveal">
+                <div class="contact-card-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h4>Horaires</h4>
+                <p style="font-size:0.88rem;">
+                    Lun–Mar–Mer : 9h–13h / 14h–18h<br>
+                    Vendredi : 9h–13h30 / 15h–18h30<br>
+                    <span style="color:var(--gold); font-weight:600;">Jeudi, Sam &amp; Dim : Fermé</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FORMULAIRE ═══ -->
+    <section class="contact-form-section" id="formulaire">
+        <div class="section-container">
+            <div class="contact-form-wrapper">
+                <div class="section-subtitle">Formulaire de contact</div>
+                <h2>Prendre Rendez-vous</h2>
+                <div id="form-success" style="display:none; background:#E8F5E9; border:1.5px solid var(--medium-green); border-radius:12px; padding:1.5rem 2rem; margin-bottom:2rem; text-align:center; color:var(--dark-green);">
+                    <strong style="font-size:1.1rem;">✓ Message envoyé avec succès !</strong>
+                    <p style="margin-top:0.5rem; color:var(--text-light); font-size:0.95rem;">Merci pour votre message. Nous vous répondrons dans les meilleurs délais.</p>
+                </div>
+                <form class="contact-form" id="contactForm"
+                      action="https://formsubmit.co/contact@orthopreve.com"
+                      method="POST"
+                      enctype="multipart/form-data"
+                      novalidate>
+                    <input type="hidden" name="_subject" value="Nouveau message — Cabinet Orthodontie Prévé">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" id="formNext" value="">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom <span class="required">*</span></label>
+                            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom <span class="required">*</span></label>
+                            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Êtes-vous déjà patient(e) ? <span class="required">*</span></label>
+                        <div class="form-radio-group">
+                            <label><input type="radio" name="patient" value="oui" required> Oui</label>
+                            <label><input type="radio" name="patient" value="non"> Non</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telephone">Téléphone <span class="required">*</span></label>
+                            <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-confirm">Confirmation de l'email <span class="required">*</span></label>
+                        <input type="email" id="email-confirm" name="_email-confirm-check" placeholder="Confirmez votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sujet">Sujet <span class="required">*</span></label>
+                        <input type="text" id="sujet" name="sujet" placeholder="Objet de votre message" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" placeholder="Décrivez votre demande..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="fichier">Pièce jointe <span style="font-weight:400; color:var(--text-light);">(optionnel)</span></label>
+                        <input type="file" id="fichier" name="fichier" accept=".pdf,.doc,.docx,.jpg,.jpeg">
+                        <p class="form-file-info">Formats acceptés : PDF, Word, JPEG — Taille maximale : 20 Mo</p>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        <p class="form-note">Les champs marqués <span style="color:var(--gold);">*</span> sont obligatoires. Nous vous répondrons dans les meilleurs délais.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ MAP PLEINE LARGEUR ═══ -->
+    <div class="contact-map-full">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3013.284395354239!2d5.719859276304863!3d45.18890445176477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478af48f52098987%3A0x268ad4a8839db12c!2zRHIgUHLDqXbDqSBNYXJpZS1Iw6xsw6xuZSBldCBEciBQcsOpdsOpIFNpbW9u!5e1!3m2!1sfr!2sfr!4v1773996629799!5m2!1sfr!2sfr"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Cabinet d'Orthodontie des Docteurs Prévé — Grenoble">
+        </iframe>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-paired">
+                <h5>Comment nous rejoindre</h5>
+                <h5>Contact</h5>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚲</span>
+                    <div><strong>Vélo &amp; Trottinette</strong><span>Parking sécurisé au cabinet</span></div>
+                </div>
+                <div class="footer-contact-item">📞 <a href="tel:0476463805">04 76 46 38 05</a></div>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚌</span>
+                    <div><strong>Bus C1 — Tram A, B, C</strong><span>Arrêt Alsace-Lorraine</span></div>
+                </div>
+                <div class="footer-contact-item">✉️ <a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a></div>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚗</span>
+                    <div><strong>Voiture</strong><span>Parking K'Store — Av. Philippeville</span></div>
+                </div>
+                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><span>3 Avenue Alsace-Lorraine<br>38000 Grenoble</span></div>
+            </div>
+            <div class="footer-section">
+                <h5>Horaires</h5>
+                <ul class="footer-hours">
+                    <li data-days="1">Lundi : 9h–13h / 14h–18h30</li>
+                    <li data-days="2,3">Mardi–Mercredi : 9h–13h / 14h–18h</li>
+                    <li data-days="4">Jeudi : Fermé</li>
+                    <li data-days="5">Vendredi : 9h–13h30 / 15h–18h30</li>
+                    <li data-days="6,0">Samedi–Dimanche : Fermé</li>
+                </ul>
+            </div>
+            <div class="footer-badge"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ. Tous droits réservés.</p></div>
+    </footer>
+
+    <script>
+        // Nav scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+
+        // Reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll pour le bouton hero
+        document.querySelector('.contact-hero-content .btn-primary').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('formulaire').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // FormSubmit — URL de retour
+        document.getElementById('formNext').value = window.location.href.split('?')[0] + '?merci=1';
+
+        // Afficher le message de succès si retour après soumission
+        if (new URLSearchParams(window.location.search).get('merci') === '1') {
+            document.getElementById('form-success').style.display = 'block';
+            document.getElementById('contactForm').style.display = 'none';
+            setTimeout(() => {
+                document.getElementById('formulaire').scrollIntoView({ behavior: 'smooth' });
+            }, 200);
+        }
+
+        // Validation du formulaire
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const emailConfirm = document.getElementById('email-confirm').value.trim();
+            const fichier = document.getElementById('fichier').files[0];
+            const patientChecked = document.querySelector('input[name="patient"]:checked');
+
+            if (!patientChecked) { showError('Veuillez indiquer si vous êtes déjà patient(e).'); return; }
+            if (email !== emailConfirm) { showError('Les adresses email ne correspondent pas.'); document.getElementById('email-confirm').focus(); return; }
+            if (fichier && fichier.size > 20 * 1024 * 1024) { showError('Le fichier dépasse la taille maximale de 20 Mo.'); return; }
+            this.submit();
+        });
+
+        function showError(msg) {
+            let err = document.getElementById('form-error');
+            if (!err) {
+                err = document.createElement('div');
+                err.id = 'form-error';
+                err.style.cssText = 'background:#FFF3F3;border:1.5px solid #C0392B;border-radius:10px;padding:1rem 1.5rem;margin-bottom:1.5rem;color:#C0392B;font-size:0.9rem;';
+                document.getElementById('contactForm').prepend(err);
+            }
+            err.textContent = msg;
+            err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+    </script>
+    <script>
+        function toggleTranslate() {
+            var url = window.location.href;
+            // If already going through Google Translate proxy, go back to original
+            if (url.includes('translate.google')) {
+                var match = url.match(/[?&]u=([^&]+)/);
+                if (match) { window.location.href = decodeURIComponent(match[1]); return; }
+            }
+            window.location.href = 'https://translate.google.com/translate?sl=fr&tl=en&u=' + encodeURIComponent(url);
+        }
+
+        function toggleTranslateES() {
+            var url = window.location.href;
+            if (url.includes('translate.google')) {
+                var match = url.match(/[?&]u=([^&]+)/);
+                if (match) { window.location.href = decodeURIComponent(match[1]); return; }
+            }
+            window.location.href = 'https://translate.google.com/translate?sl=fr&tl=es&u=' + encodeURIComponent(url);
+        }
+    </script>
+    <script>
+        (function() {
+            var today = new Date().getDay();
+            document.querySelectorAll('.footer-hours li').forEach(function(li) {
+                var days = li.getAttribute('data-days').split(',').map(Number);
+                if (days.indexOf(today) !== -1) li.classList.add('today');
+            });
+        })();
+    </script>
+</body>
+</html>
