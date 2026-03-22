@@ -6,14 +6,17 @@
     <title>Contact — Cabinet d'Orthodontie des Docteurs PRÉVÉ</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         /* ── HERO CONTACT ── */
         .contact-hero {
             position: relative;
-            height: 65vh;
-            min-height: 420px;
+            height: 55vh;
+            min-height: 380px;
+            padding-top: 80px;
+            box-sizing: border-box;
             display: flex;
-            align-items: center;
+            align-items: stretch;
             justify-content: center;
             overflow: hidden;
         }
@@ -38,9 +41,34 @@
         .contact-hero-content {
             position: relative;
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 2rem;
+            padding: 0 2rem;
             animation: fadeInUp 0.9s ease 0.2s both;
+            width: 100%;
+            max-width: 900px;
+        }
+        .hero-text-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-hero-btn {
+            position: absolute;
+            bottom: 2.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            font-size: 0.95rem;
+            padding: 0.75rem 2rem;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+        .contact-hero-btn:hover {
+            transform: translateX(-50%) translateY(-3px);
         }
         .contact-hero-content .hero-eyebrow {
             font-size: 0.85rem;
@@ -53,46 +81,65 @@
         }
         .contact-hero-content h1 {
             color: white;
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 0.7rem;
             text-shadow: 0 2px 12px rgba(0,0,0,0.25);
         }
         .contact-hero-content .hero-sub {
             color: rgba(255,255,255,0.88);
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 300;
-            margin-bottom: 2.2rem;
-        }
-        .contact-hero-content .btn-primary {
-            font-size: 1rem;
-            padding: 0.95rem 2.4rem;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+            margin-top: 0.4rem;
+            margin-bottom: 0;
         }
 
-        /* ── INFOS CARDS ── */
-        .contact-cards-section { background: white; padding: 4rem 2rem; }
-        .contact-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        /* ── INFOS CARDS — remplit exactement le reste du viewport ── */
+        .contact-cards-section {
+            background: white;
+            padding: 0 2rem;
+            height: 45vh;
+            min-height: 280px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+        }
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.8rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            height: calc(45vh - 3rem);
+            min-height: 220px;
+            align-items: stretch;
+        }
         .contact-card {
             background: var(--cream);
             border-radius: 16px;
-            padding: 2.2rem 1.8rem;
+            padding: 0;
             text-align: center;
             border-bottom: 3px solid var(--gold);
             transition: all 0.3s ease;
             box-shadow: 0 2px 14px rgba(30,86,49,0.07);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
         .contact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(30,86,49,0.13); }
         .contact-card-icon {
-            width: 58px; height: 58px;
+            width: 40px; height: 40px;
             background: linear-gradient(135deg, var(--medium-green), var(--light-green));
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 1.2rem;
+            flex-shrink: 0;
         }
-        .contact-card-icon svg { width: 28px; height: 28px; stroke: white; fill: none; stroke-width: 2; }
-        .contact-card h4 { color: var(--dark-green); font-size: 1rem; margin-bottom: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Inter', sans-serif; font-weight: 700; }
-        .contact-card p, .contact-card a { font-size: 1rem; color: var(--text-light); line-height: 1.6; text-decoration: none; }
+        .contact-card-icon svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; }
+        .contact-card h4 { color: var(--dark-green); font-size: 0.92rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Inter', sans-serif; font-weight: 700; }
+        .contact-card p, .contact-card a { font-size: 1rem; color: var(--text-light); line-height: 1.5; text-decoration: none; margin: 0; }
         .contact-card a { color: var(--medium-green); font-weight: 500; }
         .contact-card a:hover { color: var(--gold); }
 
@@ -117,8 +164,15 @@
         /* ── FORMULAIRE ── */
         .contact-form-section { background: white; }
         .contact-form-wrapper { max-width: 780px; margin: 0 auto; }
-        .contact-form-wrapper h2 { text-align: center; margin-bottom: 0.5rem; }
-        .contact-form-wrapper .section-subtitle { text-align: center; display: block; margin-bottom: 3rem; }
+        .contact-form-wrapper .form-heading {
+            text-align: center;
+            display: block;
+            margin-bottom: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-green);
+        }
 
         /* ── MAP PLEINE LARGEUR ── */
         .contact-map-full {
@@ -136,12 +190,14 @@
 
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
-            .contact-hero-content h1 { font-size: 1.9rem; }
-            .contact-cards { grid-template-columns: 1fr; max-width: 100%; gap: 1rem; padding: 0 1rem; }
-            .contact-card { padding: 1.2rem 1.2rem; display: flex; flex-direction: row; align-items: center; text-align: left; gap: 1rem; overflow: hidden; }
+            .contact-hero-content h1 { font-size: 2.4rem; }
+            .contact-hero-content .hero-eyebrow { margin-bottom: 0.8rem; }
+            .contact-cards-section { height: auto; padding: 1rem; }
+            .contact-cards { grid-template-columns: 1fr; max-width: 100%; gap: 0.75rem; padding: 0; height: auto; }
+            .contact-card { padding: 0.9rem 1rem; flex-direction: row; text-align: left; gap: 1rem; overflow: hidden; justify-content: flex-start; }
             .contact-card p, .contact-card a { word-break: break-word; overflow-wrap: break-word; max-width: 100%; }
-            .contact-card-icon { margin: 0; flex-shrink: 0; width: 48px; height: 48px; }
-            .contact-card h4 { margin-bottom: 0.2rem; }
+            .contact-card-icon { flex-shrink: 0; width: 44px; height: 44px; }
+            .contact-card h4 { display: none; }
             .contact-details-grid { grid-template-columns: 1fr; }
             .contact-map-full { height: 300px; }
         }
@@ -154,19 +210,7 @@
             <img src="https://files.sbcdnsb.com/images/w3hWypnyU2RCzF75YP9NGg/businesses/1746643578/vwxuuh6cru_1617620722.png" alt="Logo">
             
         </a>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="cabinet.html">Le Cabinet</a></li>
-            <li><a href="equipe.html">L'Équipe</a></li>
-            <li><a href="traitements.html">Traitements</a></li>
-            <li class="nav-hide-mobile"><a href="engagements.html">Engagements Durables</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-            <li class="nav-flags-mobile">
-                <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française"><img src="img/Flag_of_France.svg.png" alt="Français"></div>
-                <div class="nav-lang-btn" onclick="setLanguage('en')" title="Translate to English"><img src="img/flag-uk.png.svg.png" alt="English"></div>
-                <div class="nav-lang-btn" onclick="setLanguage('es')" title="Traducir al español"><img src="img/flag-es.png.png" alt="Español"></div>
-            </li>
-        </ul>
-        <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
+        <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open'); this.classList.toggle('active'); document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
         <div class="nav-flags">
             <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française">
                 <img src="img/Flag_of_France.svg.png" alt="Français">
@@ -179,17 +223,33 @@
             </div>
         </div>
     </nav>
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-cta-mobile"><a href="contact.html" class="btn btn-primary">Prendre Rendez-vous</a></li>
+            <li><a href="cabinet.html">Le Cabinet</a></li>
+            <li><a href="equipe.html">L'Équipe</a></li>
+            <li><a href="traitements.html">Traitements</a></li>
+            <li class="nav-hide-mobile"><a href="engagements.html">Engagements Durables</a></li>
+            <li><a href="ressources.html">Ressources</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li class="nav-flags-mobile">
+                <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française"><img src="img/Flag_of_France.svg.png" alt="Français"></div>
+                <div class="nav-lang-btn" onclick="setLanguage('en')" title="Translate to English"><img src="img/flag-uk.png.svg.png" alt="English"></div>
+                <div class="nav-lang-btn" onclick="setLanguage('es')" title="Traducir al español"><img src="img/flag-es.png.png" alt="Español"></div>
+            </li>
+        </ul>
 
     <!-- ═══ HERO ═══ -->
     <section class="contact-hero">
         <div class="contact-hero-bg"></div>
         <div class="contact-hero-overlay"></div>
         <div class="contact-hero-content">
-            <span class="hero-eyebrow">Grenoble — 38000</span>
-            <h1>Contactez le Cabinet d'Orthodontie<br>des Docteurs Prévé</h1>
-            <p class="hero-sub">Notre équipe est à votre écoute du lundi au vendredi</p>
-            <a href="#formulaire" class="btn btn-primary">Prendre Rendez-vous</a>
+            <div class="hero-text-group">
+                <span class="hero-eyebrow">Grenoble — 38000</span>
+                <h1>Contactez le Cabinet</h1>
+                <p class="hero-sub">Notre équipe est à votre écoute du lundi au vendredi</p>
+            </div>
         </div>
+        <a href="#formulaire" class="btn btn-primary contact-hero-btn">Prendre Rendez-vous</a>
     </section>
 
     <!-- ═══ CARTES CONTACT ═══ -->
@@ -197,7 +257,7 @@
         <div class="contact-cards">
             <div class="contact-card reveal">
                 <div class="contact-card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 14a16 16 0 006.09 6.09l.41-.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" fill="white" stroke="none"/></svg>
                 </div>
                 <h4>Téléphone</h4>
                 <p><a href="tel:0476463805">04 76 46 38 05</a></p>
@@ -207,7 +267,7 @@
                     <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <h4>Adresse</h4>
-                <p>3 Avenue Alsace-Lorraine<br>38000 Grenoble</p>
+                <p><a href="https://www.google.com/maps/dir/?api=1&destination=3+Avenue+Alsace-Lorraine+38000+Grenoble&destination_place_id=ChIJh4kJUo9KiUcREsGtg6ikgCY&travelmode=driving" target="_blank" rel="noopener" style="text-decoration:none; transition:color 0.3s;">3 Avenue Alsace-Lorraine<br>38000 Grenoble</a></p>
             </div>
             <div class="contact-card reveal">
                 <div class="contact-card-icon">
@@ -234,8 +294,7 @@
     <section class="contact-form-section" id="formulaire">
         <div class="section-container">
             <div class="contact-form-wrapper">
-                <div class="section-subtitle">Formulaire de contact</div>
-                <h2>Prendre Rendez-vous</h2>
+                <div class="form-heading">Formulaire de contact</div>
                 <div id="form-success" style="display:none; background:#E8F5E9; border:1.5px solid var(--medium-green); border-radius:12px; padding:1.5rem 2rem; margin-bottom:2rem; text-align:center; color:var(--dark-green);">
                     <strong style="font-size:1.1rem;">✓ Message envoyé avec succès !</strong>
                     <p style="margin-top:0.5rem; color:var(--text-light); font-size:0.95rem;">Merci pour votre message. Nous vous répondrons dans les meilleurs délais.</p>
@@ -294,6 +353,9 @@
                         <input type="file" id="fichier" name="fichier" accept=".pdf,.doc,.docx,.jpg,.jpeg">
                         <p class="form-file-info">Formats acceptés : PDF, Word, JPEG — Taille maximale : 10 Mo</p>
                     </div>
+                    <div class="form-group" style="display:flex; justify-content:center; margin: 1rem 0;">
+                        <div class="g-recaptcha" data-sitekey="6LcZoJMsAAAAADD4qSy0KklXejbpJaNYPW3_K6Pk"></div>
+                    </div>
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary">Envoyer le message</button>
                         <p class="form-note">Les champs marqués <span style="color:var(--gold);">*</span> sont obligatoires. Nous vous répondrons dans les meilleurs délais.</p>
@@ -334,7 +396,7 @@
                     <span class="ft-icon">🚗</span>
                     <div><strong>Voiture</strong><span>Parking K'Store — Av. Philippeville</span></div>
                 </div>
-                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><span>3 Avenue Alsace-Lorraine<br>38000 Grenoble</span></div>
+                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><a href="https://www.google.com/maps/dir/?api=1&destination=3+Avenue+Alsace-Lorraine+38000+Grenoble&destination_place_id=ChIJh4kJUo9KiUcREsGtg6ikgCY" target="_blank" rel="noopener" style="transition:color 0.3s;">3 Avenue Alsace-Lorraine<br>38000 Grenoble</a></div>
             </div>
             <div class="footer-section">
                 <h5>Horaires</h5>
@@ -398,6 +460,7 @@
             if (!patientChecked) { showError('Veuillez indiquer si vous êtes déjà patient(e).'); return; }
             if (email !== emailConfirm) { showError('Les adresses email ne correspondent pas.'); document.getElementById('email-confirm').focus(); return; }
             if (fichier && fichier.size > 10 * 1024 * 1024) { showError('Le fichier dépasse la taille maximale de 10 Mo.'); return; }
+            if (!grecaptcha.getResponse()) { showError('Veuillez cocher la case "Je ne suis pas un robot".'); return; }
             this.submit();
         });
 
@@ -463,6 +526,35 @@
             select.dispatchEvent(new Event('change'));
         }
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script>
+        (function(){
+            var menu = document.getElementById('navMenu');
+            var hamburger = document.querySelector('.hamburger');
+
+            // Fermer le menu uniquement via les liens ou le bouton hamburger
+            document.querySelectorAll('.nav-menu a').forEach(function(l){
+                l.addEventListener('click', function(){
+                    menu.classList.remove('open');
+                    hamburger.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+
+            // Bloquer tout scroll tactile quand le menu est ouvert
+            menu.addEventListener('touchmove', function(e){
+                e.preventDefault();
+            }, { passive: false });
+
+            // Empêcher que toucher le fond du menu ne déclenche quoi que ce soit
+            menu.addEventListener('click', function(e){
+                // Ne rien faire si on clique sur le fond (pas sur un lien/bouton)
+                if (e.target === menu) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+            });
+        })();
+        </script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
