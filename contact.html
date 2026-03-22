@@ -354,7 +354,14 @@
     <script>
         // Nav scroll
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+        const siteFooter = document.querySelector('footer');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            if (siteFooter) {
+                const footerTop = siteFooter.getBoundingClientRect().top;
+                navbar.classList.toggle('near-footer', footerTop < window.innerHeight + 20);
+            }
+        });
 
         // Reveal animations
         const observer = new IntersectionObserver((entries) => {

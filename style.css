@@ -389,11 +389,15 @@ footer { background: var(--dark-green); color: white; padding: 3rem 0; }
     nav, nav.scrolled { padding: 0.8rem 1rem; width: 100%; background: rgba(30, 86, 49, 0.75) !important; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); box-shadow: 0 2px 15px rgba(0,0,0,0.2); }
     nav .nav-menu a, nav.scrolled .nav-menu a { color: rgba(255,255,255,0.95) !important; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
     nav .hamburger span, nav.scrolled .hamburger span { background: white !important; }
+    nav .nav-logo img, nav.scrolled .nav-logo img { background: white !important; box-shadow: 0 0 0 4px white !important; }
+    nav.near-footer { background: rgba(253, 250, 246, 0.95) !important; box-shadow: 0 2px 15px rgba(0,0,0,0.15); }
+    nav.near-footer .hamburger span { background: var(--dark-green) !important; }
+    nav.near-footer .nav-logo img { background: white !important; box-shadow: 0 0 0 4px white !important; }
     .nav-flags { display: none; }
     .nav-hide-mobile { display: none; }
     .nav-flags-mobile { display: flex; gap: 0.6rem; justify-content: center; list-style: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(30,86,49,0.15); }
     .nav-flags-mobile .nav-lang-btn { width: 28px; height: 28px; }
-    .nav-menu { display: none; position: fixed; top: 0; right: -100%; width: 55%; height: auto; min-height: unset; background: rgba(253, 250, 246, 0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); flex-direction: column; justify-content: flex-start; align-items: center; gap: 1.5rem; padding: 5rem 1.5rem 2.5rem; transition: right 0.3s ease; box-shadow: -4px 0 20px rgba(0,0,0,0.12); border-radius: 0 0 0 16px; }
+    .nav-menu { display: none; position: fixed; top: 0; right: -100%; width: 55%; height: auto; min-height: unset; background: rgba(253, 250, 246, 0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); flex-direction: column; justify-content: flex-start; align-items: center; gap: 1rem; padding: 4.5rem 1.5rem 1.8rem; transition: right 0.3s ease; box-shadow: -4px 0 20px rgba(0,0,0,0.18); border-radius: 0 0 0 16px; margin-right: 0; }
     .nav-menu.open { display: flex; right: 0; }
     .hamburger { display: flex; }
     .inner-hero { height: 55vh; min-height: 360px; padding-top: 5.5rem; box-sizing: border-box; }
