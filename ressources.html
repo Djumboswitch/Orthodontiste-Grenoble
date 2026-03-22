@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ressources — Cabinet d'Orthodontie des Docteurs PRÉVÉ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://files.sbcdnsb.com/images/w3hWypnyU2RCzF75YP9NGg/businesses/1746643578/vwxuuh6cru_1617620722.png">
+    <style>
+        /* ── BARRE DE RECHERCHE ── */
+        .res-search-wrap {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .res-search-wrap input {
+            width: 100%;
+            padding: 0.85rem 1.4rem 0.85rem 3rem;
+            border: 2px solid var(--border-light);
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+            background: white;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+        .res-search-wrap input:focus {
+            border-color: var(--medium-green);
+            box-shadow: 0 0 0 3px rgba(30, 86, 49, 0.1);
+        }
+        .res-search-wrap input::placeholder { color: #aaa; }
+        .res-search-icon {
+            position: absolute;
+            left: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            stroke: #999;
+            fill: none;
+            stroke-width: 2;
+            pointer-events: none;
+        }
+
+        /* ── FILTRES PAR CATÉGORIE ── */
+        .res-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+        .res-filter-btn {
+            padding: 0.55rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid var(--medium-green);
+            background: transparent;
+            color: var(--medium-green);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .res-filter-btn:hover,
+        .res-filter-btn.active {
+            background: var(--medium-green);
+            color: white;
+        }
+
+        /* ── GRILLE VIDÉOS ── */
+        .res-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .res-card {
+            background: var(--cream);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(30,86,49,0.08);
+            transition: all 0.35s ease;
+            border-bottom: 3px solid var(--gold);
+        }
+        .res-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(30,86,49,0.15);
+        }
+
+        /* ── VIDÉO THUMBNAIL + LAZY EMBED ── */
+        .res-video-wrap {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: linear-gradient(135deg, #1e5631 0%, #2d7a47 100%);
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .res-video-wrap iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+        .res-video-thumb {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .res-play-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px; height: 64px;
+            background: rgba(255,255,255,0.92);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .res-video-wrap:hover .res-play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: white;
+        }
+        .res-play-btn svg {
+            width: 28px; height: 28px;
+            fill: var(--dark-green);
+            margin-left: 3px;
+        }
+
+        /* ── INFOS SOUS LA VIDÉO ── */
+        .res-card-body {
+            padding: 1.2rem 1.4rem 1.4rem;
+        }
+        .res-card-cat {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gold);
+            background: rgba(201, 169, 110, 0.12);
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            margin-bottom: 0.7rem;
+        }
+        .res-card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+            line-height: 1.35;
+        }
+        .res-card-body p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ── MESSAGE VIDE ── */
+        .res-empty {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        .res-empty.visible {
+            display: block;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 992px) {
+            .res-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        }
+        @media (max-width: 600px) {
+            .res-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+            .res-filters { gap: 0.5rem; }
+            .res-filter-btn { font-size: 0.8rem; padding: 0.45rem 1rem; }
+            .res-search-wrap { margin: 0 1rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="https://files.sbcdnsb.com/images/w3hWypnyU2RCzF75YP9NGg/businesses/1746643578/vwxuuh6cru_1617620722.png" alt="Logo">
+        </a>
+        <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open'); this.classList.toggle('active'); document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+        <div class="nav-flags">
+            <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française">
+                <img src="img/Flag_of_France.svg.png" alt="Français">
+            </div>
+            <div class="nav-lang-btn" onclick="setLanguage('en')" title="Translate to English">
+                <img src="img/flag-uk.png.svg.png" alt="English">
+            </div>
+            <div class="nav-lang-btn" onclick="setLanguage('es')" title="Traducir al español">
+                <img src="img/flag-es.png.png" alt="Español">
+            </div>
+        </div>
+    </nav>
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-cta-mobile"><a href="contact.html" class="btn btn-primary">Prendre Rendez-vous</a></li>
+            <li><a href="cabinet.html">Le Cabinet</a></li>
+            <li><a href="equipe.html">L'Équipe</a></li>
+            <li><a href="traitements.html">Traitements</a></li>
+            <li class="nav-hide-mobile"><a href="engagements.html">Engagements Durables</a></li>
+            <li><a href="ressources.html" class="active">Ressources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="nav-flags-mobile">
+                <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française"><img src="img/Flag_of_France.svg.png" alt="Français"></div>
+                <div class="nav-lang-btn" onclick="setLanguage('en')" title="Translate to English"><img src="img/flag-uk.png.svg.png" alt="English"></div>
+                <div class="nav-lang-btn" onclick="setLanguage('es')" title="Traducir al español"><img src="img/flag-es.png.png" alt="Español"></div>
+            </li>
+        </ul>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="inner-hero">
+        <div class="inner-hero-bg" style="background-image: url('img/hero-cabinet.jpg'); background-position: center 40%;"></div>
+        <div class="inner-hero-overlay"></div>
+        <div class="inner-hero-content reveal">
+            <span class="hero-eyebrow">Grenoble — 38000</span>
+            <h1>Ressources &amp; Conseils</h1>
+            <p class="hero-sub">Vidéos et guides pratiques pour accompagner votre traitement</p>
+        </div>
+    </section>
+
+    <!-- ═══ CONTENU ═══ -->
+    <section class="section-container" style="padding-top: 4rem; padding-bottom: 5rem;">
+
+        <!-- Barre de recherche -->
+        <div class="res-search-wrap">
+            <svg class="res-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="resSearch" placeholder="Rechercher une vidéo (ex : brossage, élastiques, urgence...)">
+        </div>
+
+        <!-- Filtres -->
+        <div class="res-filters">
+            <button class="res-filter-btn active" data-cat="all">Tout</button>
+            <button class="res-filter-btn" data-cat="comprendre">Comprendre</button>
+            <button class="res-filter-btn" data-cat="appareils">Appareils</button>
+            <button class="res-filter-btn" data-cat="elastiques">Élastiques</button>
+            <button class="res-filter-btn" data-cat="alimentation">Alimentation</button>
+            <button class="res-filter-btn" data-cat="contention">Contention</button>
+            <button class="res-filter-btn" data-cat="quotidien">Vie quotidienne</button>
+        </div>
+
+        <!-- Grille de vidéos -->
+        <div class="res-grid">
+
+            <!-- COMPRENDRE L'ORTHODONTIE -->
+            <div class="res-card reveal" data-cat="comprendre">
+                <div class="res-video-wrap" data-youtube="-hWXfty4azE">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Comprendre</span>
+                    <h3>C'est quoi, la malocclusion ?</h3>
+                    <p>Comprendre les problèmes d'alignement dentaire et leurs conséquences sur la santé bucco-dentaire.</p>
+                </div>
+            </div>
+
+            <div class="res-card reveal" data-cat="comprendre">
+                <div class="res-video-wrap" data-youtube="Cvr_cpOOrvI">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Comprendre</span>
+                    <h3>C'est quoi, le stripping ?</h3>
+                    <p>Tout savoir sur cette technique qui permet de créer de l'espace entre les dents.</p>
+                </div>
+            </div>
+
+            <div class="res-card reveal" data-cat="comprendre">
+                <div class="res-video-wrap" data-youtube="1dlzM_amNOQ">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Comprendre</span>
+                    <h3>À quel moment débuter un traitement ?</h3>
+                    <p>Les signes à surveiller et le bon moment pour consulter un orthodontiste.</p>
+                </div>
+            </div>
+
+            <div class="res-card reveal" data-cat="comprendre">
+                <div class="res-video-wrap" data-youtube="TyFVl0gSA04">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Comprendre</span>
+                    <h3>Dents de sagesse et orthodontie</h3>
+                    <p>Faut-il retirer les dents de sagesse avant ou pendant un traitement orthodontique ?</p>
+                </div>
+            </div>
+
+            <!-- APPAREILS -->
+            <div class="res-card reveal" data-cat="appareils">
+                <div class="res-video-wrap" data-youtube="_bsJ7fDZ0e4">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Appareils</span>
+                    <h3>Gouttières d'orthodontie : conseils et entretien</h3>
+                    <p>Comment porter, retirer et entretenir vos gouttières au quotidien.</p>
+                </div>
+            </div>
+
+            <div class="res-card reveal" data-cat="appareils">
+                <div class="res-video-wrap" data-youtube="a-XFBgi2u2M">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Appareils</span>
+                    <h3>Bagues en métal vs bagues en céramique</h3>
+                    <p>Les différences entre les deux types de brackets et comment choisir.</p>
+                </div>
+            </div>
+
+            <div class="res-card reveal" data-cat="appareils">
+                <div class="res-video-wrap" data-youtube="HlTmbpznaSA">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Appareils</span>
+                    <h3>Comment activer son disjoncteur ?</h3>
+                    <p>Le guide pas à pas pour activer correctement votre disjoncteur palatin.</p>
+                </div>
+            </div>
+
+            <!-- ÉLASTIQUES -->
+            <div class="res-card reveal" data-cat="elastiques">
+                <div class="res-video-wrap" data-youtube="cIaDbUPnv8I">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Élastiques</span>
+                    <h3>Tout savoir sur les élastiques</h3>
+                    <p>Où les accrocher, combien de temps les porter et quand les changer.</p>
+                </div>
+            </div>
+
+            <!-- ALIMENTATION -->
+            <div class="res-card reveal" data-cat="alimentation">
+                <div class="res-video-wrap" data-youtube="dobSzwhc2v0">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Alimentation</span>
+                    <h3>Alimentation et appareil dentaire</h3>
+                    <p>Les aliments à privilégier et ceux à éviter pour protéger votre appareil.</p>
+                </div>
+            </div>
+
+            <!-- CONTENTION -->
+            <div class="res-card reveal" data-cat="contention">
+                <div class="res-video-wrap" data-youtube="4HnLWog-TrY">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Contention</span>
+                    <h3>À quoi servent les contentions ?</h3>
+                    <p>L'importance du fil de contention et des gouttières de nuit après le traitement.</p>
+                </div>
+            </div>
+
+            <!-- VIE QUOTIDIENNE -->
+            <div class="res-card reveal" data-cat="quotidien">
+                <div class="res-video-wrap" data-youtube="KaW87fCQmIQ">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Vie quotidienne</span>
+                    <h3>Appareil dentaire et sport</h3>
+                    <p>Mon appareil est-il compatible avec la pratique sportive ? Les précautions à prendre.</p>
+                </div>
+            </div>
+
+            <div class="res-card reveal" data-cat="quotidien">
+                <div class="res-video-wrap" data-youtube="UBazVGGwA5M">
+                    <div class="res-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+                </div>
+                <div class="res-card-body">
+                    <span class="res-card-cat">Vie quotidienne</span>
+                    <h3>Succion du pouce et de la tétine</h3>
+                    <p>Les répercussions sur les dents et à quel moment consulter.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Message si aucun résultat -->
+        <div class="res-empty">Aucune ressource ne correspond à votre recherche.</div>
+
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-paired">
+                <h5>Comment nous rejoindre</h5>
+                <h5>Contact</h5>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚲</span>
+                    <div><strong>Vélo &amp; Trottinette</strong><span>Parking sécurisé au cabinet</span></div>
+                </div>
+                <div class="footer-contact-item">📞 <a href="tel:0476463805">04 76 46 38 05</a></div>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚌</span>
+                    <div><strong>Bus C1 — Tram A, B, C</strong><span>Arrêt Alsace-Lorraine</span></div>
+                </div>
+                <div class="footer-contact-item">✉️ <a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a></div>
+                <div class="footer-transport-item">
+                    <span class="ft-icon">🚗</span>
+                    <div><strong>Voiture</strong><span>Parking K'Store — Av. Philippeville</span></div>
+                </div>
+                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><a href="https://www.google.com/maps/dir/?api=1&destination=3+Avenue+Alsace-Lorraine+38000+Grenoble&destination_place_id=ChIJh4kJUo9KiUcREsGtg6ikgCY" target="_blank" rel="noopener" style="transition:color 0.3s;">3 Avenue Alsace-Lorraine<br>38000 Grenoble</a></div>
+            </div>
+            <div class="footer-section">
+                <h5>Horaires</h5>
+                <ul class="footer-hours">
+                    <li data-days="1">Lundi : 9h–13h / 14h–18h30</li>
+                    <li data-days="2,3">Mardi–Mercredi : 9h–13h / 14h–18h</li>
+                    <li data-days="4">Jeudi : Fermé</li>
+                    <li data-days="5">Vendredi : 9h–13h30 / 15h–18h30</li>
+                    <li data-days="6,0">Samedi–Dimanche : Fermé</li>
+                </ul>
+            </div>
+            <div class="footer-badge"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ. Tous droits réservés.</p></div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const siteFooter = document.querySelector('footer');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            if (siteFooter) {
+                const footerTop = siteFooter.getBoundingClientRect().top;
+                navbar.classList.toggle('near-footer', footerTop < window.innerHeight + 20);
+            }
+        });
+
+        // Reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Filtre par catégorie + recherche par mots-clés
+        (function() {
+            var btns = document.querySelectorAll('.res-filter-btn');
+            var cards = document.querySelectorAll('.res-card');
+            var empty = document.querySelector('.res-empty');
+            var searchInput = document.getElementById('resSearch');
+            var activeCat = 'all';
+
+            function filterCards() {
+                var query = searchInput.value.toLowerCase().trim();
+                var count = 0;
+
+                cards.forEach(function(card) {
+                    var catMatch = (activeCat === 'all' || card.getAttribute('data-cat') === activeCat);
+                    var textMatch = true;
+
+                    if (query) {
+                        var text = card.textContent.toLowerCase();
+                        // Vérifie que TOUS les mots de la recherche sont présents
+                        var words = query.split(/\s+/);
+                        textMatch = words.every(function(w) { return text.indexOf(w) !== -1; });
+                    }
+
+                    if (catMatch && textMatch) {
+                        card.style.display = '';
+                        count++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                empty.classList.toggle('visible', count === 0);
+            }
+
+            btns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    btns.forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    activeCat = btn.getAttribute('data-cat');
+                    filterCards();
+                });
+            });
+
+            searchInput.addEventListener('input', filterCards);
+
+            // Lazy-load YouTube : au clic sur la vignette, injecter l'iframe
+            document.querySelectorAll('.res-video-wrap[data-youtube]').forEach(function(wrap) {
+                var ytId = wrap.getAttribute('data-youtube');
+                // Charger la vignette YouTube si l'ID est valide
+                if (ytId && ytId !== 'YOUR_VIDEO_ID') {
+                    var thumb = document.createElement('img');
+                    thumb.className = 'res-video-thumb';
+                    thumb.src = 'https://img.youtube.com/vi/' + ytId + '/hqdefault.jpg';
+                    thumb.alt = 'Vidéo';
+                    wrap.insertBefore(thumb, wrap.firstChild);
+                }
+
+                wrap.addEventListener('click', function() {
+                    if (ytId && ytId !== 'YOUR_VIDEO_ID') {
+                        var iframe = document.createElement('iframe');
+                        iframe.src = 'https://www.youtube-nocookie.com/embed/' + ytId + '?autoplay=1&rel=0';
+                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                        iframe.setAttribute('allowfullscreen', '');
+                        wrap.innerHTML = '';
+                        wrap.appendChild(iframe);
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <script>
+        (function() {
+            var today = new Date().getDay();
+            document.querySelectorAll('.footer-hours li').forEach(function(li) {
+                var days = li.getAttribute('data-days').split(',').map(Number);
+                if (days.indexOf(today) !== -1) li.classList.add('today');
+            });
+        })();
+    </script>
+
+    <!-- Google Translate widget (caché) -->
+    <div id="google_translate_element" style="display:none"></div>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'en,es',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+        function getCurrentLang() {
+            var match = document.cookie.match(/googtrans=\/fr\/([^;]+)/);
+            return match ? match[1] : 'fr';
+        }
+        function setLanguage(lang) {
+            var current = getCurrentLang();
+            if (lang === current) {
+                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname;
+                window.location.reload(true);
+                return;
+            }
+            if (lang === 'fr') {
+                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname;
+                window.location.reload(true);
+                return;
+            }
+            var select = document.querySelector('.goog-te-combo');
+            if (!select) {
+                setTimeout(function() { setLanguage(lang); }, 400);
+                return;
+            }
+            select.value = lang;
+            select.dispatchEvent(new Event('change'));
+        }
+    </script>
+        <script>
+        (function(){
+            var menu = document.getElementById('navMenu');
+            var hamburger = document.querySelector('.hamburger');
+            document.querySelectorAll('.nav-menu a').forEach(function(l){
+                l.addEventListener('click', function(){
+                    menu.classList.remove('open');
+                    hamburger.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+            menu.addEventListener('touchmove', function(e){ e.preventDefault(); }, { passive: false });
+            menu.addEventListener('click', function(e){ if (e.target === menu) { e.stopPropagation(); e.preventDefault(); } });
+        })();
+        </script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

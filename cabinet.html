@@ -13,19 +13,7 @@
         <a href="index.html" class="nav-logo">
             <img src="https://files.sbcdnsb.com/images/w3hWypnyU2RCzF75YP9NGg/businesses/1746643578/vwxuuh6cru_1617620722.png" alt="Logo">
         </a>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="cabinet.html" class="active">Le Cabinet</a></li>
-            <li><a href="equipe.html">L'Équipe</a></li>
-            <li><a href="traitements.html">Traitements</a></li>
-            <li class="nav-hide-mobile"><a href="engagements.html">Engagements Durables</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li class="nav-flags-mobile">
-                <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française"><img src="img/Flag_of_France.svg.png" alt="Français"></div>
-                <div class="nav-lang-btn" onclick="setLanguage('en')" title="Translate to English"><img src="img/flag-uk.png.svg.png" alt="English"></div>
-                <div class="nav-lang-btn" onclick="setLanguage('es')" title="Traducir al español"><img src="img/flag-es.png.png" alt="Español"></div>
-            </li>
-        </ul>
-        <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')"><span></span><span></span><span></span></button>
+        <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open'); this.classList.toggle('active'); document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
         <div class="nav-flags">
             <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française">
                 <img src="img/Flag_of_France.svg.png" alt="Français">
@@ -38,6 +26,20 @@
             </div>
         </div>
     </nav>
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-cta-mobile"><a href="contact.html" class="btn btn-primary">Prendre Rendez-vous</a></li>
+            <li><a href="cabinet.html" class="active">Le Cabinet</a></li>
+            <li><a href="equipe.html">L'Équipe</a></li>
+            <li><a href="traitements.html">Traitements</a></li>
+            <li class="nav-hide-mobile"><a href="engagements.html">Engagements Durables</a></li>
+            <li><a href="ressources.html">Ressources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="nav-flags-mobile">
+                <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française"><img src="img/Flag_of_France.svg.png" alt="Français"></div>
+                <div class="nav-lang-btn" onclick="setLanguage('en')" title="Translate to English"><img src="img/flag-uk.png.svg.png" alt="English"></div>
+                <div class="nav-lang-btn" onclick="setLanguage('es')" title="Traducir al español"><img src="img/flag-es.png.png" alt="Español"></div>
+            </li>
+        </ul>
 
     <!-- HERO -->
     <section class="inner-hero">
@@ -81,7 +83,7 @@
                 </div>
                 <div class="cab-feat-body">
                     <h3>Équipement moderne pour votre confort</h3>
-                    <p>Scanner intraoral, radiographie numérique basse dose, impression 3D : nos technologies de pointe garantissent des diagnostics précis et des traitements plus rapides, plus confortables. Votre bouche ne sera plus jamais encombrée d'empreintes.</p>
+                    <p>Scanner intraoral, radiographie numérique basse dose, impression 3D : nos technologies de pointe garantissent des diagnostics précis et des traitements plus rapides, plus confortables.</p>
                 </div>
             </div>
 
@@ -92,7 +94,7 @@
                 </div>
                 <div class="cab-feat-body">
                     <h3>Votre temps est précieux</h3>
-                    <p>Nos plannings sont organisés pour être ponctuels : l'attente en salle est réduite au strict minimum. Le suivi à distance limit également le nombre de visites nécessaires tout au long du traitement.</p>
+                    <p>Nos plannings sont organisés pour être ponctuels : l'attente en salle est réduite au strict minimum. Le suivi à distance limite également le nombre de visites nécessaires tout au long du traitement.</p>
                 </div>
             </div>
 
@@ -129,7 +131,7 @@
                     <span class="ft-icon">🚗</span>
                     <div><strong>Voiture</strong><span>Parking K'Store — Av. Philippeville</span></div>
                 </div>
-                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><span>3 Avenue Alsace-Lorraine<br>38000 Grenoble</span></div>
+                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><a href="https://www.google.com/maps/dir/?api=1&destination=3+Avenue+Alsace-Lorraine+38000+Grenoble&destination_place_id=ChIJh4kJUo9KiUcREsGtg6ikgCY" target="_blank" rel="noopener" style="transition:color 0.3s;">3 Avenue Alsace-Lorraine<br>38000 Grenoble</a></div>
             </div>
             <div class="footer-section">
                 <h5>Horaires</h5>
@@ -212,6 +214,21 @@
             select.dispatchEvent(new Event('change'));
         }
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script>
+        (function(){
+            var menu = document.getElementById('navMenu');
+            var hamburger = document.querySelector('.hamburger');
+            document.querySelectorAll('.nav-menu a').forEach(function(l){
+                l.addEventListener('click', function(){
+                    menu.classList.remove('open');
+                    hamburger.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+            menu.addEventListener('touchmove', function(e){ e.preventDefault(); }, { passive: false });
+            menu.addEventListener('click', function(e){ if (e.target === menu) { e.stopPropagation(); e.preventDefault(); } });
+        })();
+        </script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
