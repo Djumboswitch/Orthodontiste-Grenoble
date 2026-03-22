@@ -280,7 +280,7 @@
                     <div class="form-group">
                         <label for="fichier">Pièce jointe <span style="font-weight:400; color:var(--text-light);">(optionnel)</span></label>
                         <input type="file" id="fichier" name="fichier" accept=".pdf,.doc,.docx,.jpg,.jpeg">
-                        <p class="form-file-info">Formats acceptés : PDF, Word, JPEG — Taille maximale : 20 Mo</p>
+                        <p class="form-file-info">Formats acceptés : PDF, Word, JPEG — Taille maximale : 10 Mo</p>
                     </div>
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary">Envoyer le message</button>
@@ -378,7 +378,7 @@
 
             if (!patientChecked) { showError('Veuillez indiquer si vous êtes déjà patient(e).'); return; }
             if (email !== emailConfirm) { showError('Les adresses email ne correspondent pas.'); document.getElementById('email-confirm').focus(); return; }
-            if (fichier && fichier.size > 20 * 1024 * 1024) { showError('Le fichier dépasse la taille maximale de 20 Mo.'); return; }
+            if (fichier && fichier.size > 10 * 1024 * 1024) { showError('Le fichier dépasse la taille maximale de 10 Mo.'); return; }
             this.submit();
         });
 
