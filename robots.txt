@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orthodontiste-grenoble.fr/sitemap.xml
