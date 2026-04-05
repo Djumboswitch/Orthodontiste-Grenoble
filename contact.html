@@ -217,6 +217,38 @@
     </style>
 </head>
 <body>
+<!-- Popup fermeture temporaire -->
+<div id="closureOverlay" class="closure-overlay">
+    <div class="closure-popup">
+        <button class="closure-close" onclick="document.getElementById('closureOverlay').style.display='none'">&times;</button>
+        <span class="closure-icon" id="closureIcon"></span>
+        <h3 id="closureTitle"></h3>
+        <p id="closureText"></p>
+    </div>
+</div>
+<script>
+(function(){
+    if (sessionStorage.getItem("closureSeen")) return;
+    fetch("fermetures.json?" + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(fermetures){
+        var now = new Date();
+        for (var i = 0; i < fermetures.length; i++) {
+            var f = fermetures[i];
+            var debut = new Date(f.debut);
+            var fin = new Date(f.fin);
+            if (now >= debut && now < fin) {
+                document.getElementById("closureIcon").textContent = f.icon;
+                document.getElementById("closureTitle").textContent = f.titre;
+                document.getElementById("closureText").innerHTML = f.message;
+                document.getElementById("closureOverlay").style.display = "flex";
+                break;
+            }
+        }
+    })
+    .catch(function(){});
+})();
+</script>
     <nav id="navbar">
         <a href="index.html" class="nav-logo">
             <img src="https://files.sbcdnsb.com/images/w3hWypnyU2RCzF75YP9NGg/businesses/1746643578/vwxuuh6cru_1617620722.png" alt="Logo">
@@ -396,7 +428,7 @@
                 <h5>Contact</h5>
                 <div class="footer-transport-item">
                     <span class="ft-icon">🚲</span>
-                    <div><strong>Vélo &amp; Trottinette</strong><span>Parking sécurisé au cabinet</span></div>
+                    <div><strong>Mobilités douces</strong><span>Parking à trottinette au cabinet</span></div>
                 </div>
                 <div class="footer-contact-item">📞 <a href="tel:0476463805">04 76 46 38 05</a></div>
                 <div class="footer-transport-item">
@@ -422,7 +454,7 @@
             </div>
             <div class="footer-badge"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></div>
         </div>
-        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ. Tous droits réservés.</p></div>
+        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ. Tous droits réservés.</p><p style="margin-top:0.5rem; font-size:0.85rem;"><a href="mentions-legales.html" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Mentions légales</a> · <a href="javascript:void(0)" onclick="document.getElementById('cookieBanner').style.display='flex'" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Gérer les cookies</a> · <a href="https://www.ordre-chirurgiens-dentistes.fr/annuaire/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Annuaire de l'Ordre</a></p></div>
     </footer>
 
     <script>
@@ -568,5 +600,18 @@
         })();
         </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- Bandeau Cookies -->
+<div id="cookieBanner" class="cookie-banner">
+    <p>Ce site utilise des cookies nécessaires à son fonctionnement (reCAPTCHA, traduction). En poursuivant votre navigation, vous acceptez leur utilisation. <a href="mentions-legales.html">En savoir plus</a></p>
+    <div class="cookie-banner-buttons">
+        <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accepter</button>
+        <button class="cookie-btn cookie-btn-refuse" onclick="refuseCookies()">Refuser</button>
+    </div>
+</div>
+<script>
+(function(){ if(!localStorage.getItem("cookieConsent")){document.getElementById("cookieBanner").style.display="flex";} })();
+function acceptCookies(){localStorage.setItem("cookieConsent","accepted");document.getElementById("cookieBanner").style.display="none";}
+function refuseCookies(){localStorage.setItem("cookieConsent","refused");document.getElementById("cookieBanner").style.display="none";}
+</script>
 </body>
 </html>

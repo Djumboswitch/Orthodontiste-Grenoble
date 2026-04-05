@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales — Orthodontiste Grenoble | Dr PRÉVÉ</title>
+    <meta name="description" content="Mentions légales du site du cabinet d'orthodontie des Docteurs PRÉVÉ à Grenoble.">
+    <link rel="canonical" href="https://orthodontiste-grenoble.fr/mentions-legales.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#1a3c2a">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .legal-section { max-width: 820px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+        .legal-section h2 { font-size: 2rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+        .legal-section h3 { font-size: 1.3rem; margin-top: 1.8rem; margin-bottom: 0.6rem; }
+        .legal-section p { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+        .legal-section ul { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; padding-left: 1.5rem; }
+        .legal-section a { color: var(--dark-green); text-decoration: underline; }
+        .legal-placeholder { background: #FFF3CD; border-left: 4px solid #C9A96E; padding: 0.8rem 1.2rem; border-radius: 4px; font-size: 0.9rem; color: #856404; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+<!-- Popup fermeture temporaire -->
+<div id="closureOverlay" class="closure-overlay">
+    <div class="closure-popup">
+        <button class="closure-close" onclick="document.getElementById('closureOverlay').style.display='none'">&times;</button>
+        <span class="closure-icon" id="closureIcon"></span>
+        <h3 id="closureTitle"></h3>
+        <p id="closureText"></p>
+    </div>
+</div>
+<script>
+(function(){
+    if (sessionStorage.getItem("closureSeen")) return;
+    fetch("fermetures.json?" + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(fermetures){
+        var now = new Date();
+        for (var i = 0; i < fermetures.length; i++) {
+            var f = fermetures[i];
+            var debut = new Date(f.debut);
+            var fin = new Date(f.fin);
+            if (now >= debut && now < fin) {
+                document.getElementById("closureIcon").textContent = f.icon;
+                document.getElementById("closureTitle").textContent = f.titre;
+                document.getElementById("closureText").innerHTML = f.message;
+                document.getElementById("closureOverlay").style.display = "flex";
+                break;
+            }
+        }
+    })
+    .catch(function(){});
+})();
+</script>
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="img/LOGO PREVE.png" alt="Logo Cabinet Dr Prévé">
+        </a>
+        <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open'); this.classList.toggle('active'); document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+        <div class="nav-flags">
+            <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française"><img src="img/Flag_of_France.svg.png" alt="Français"></div>
+            <div class="nav-lang-btn" onclick="setLanguage('en')" title="Translate to English"><img src="img/flag-uk.png.svg.png" alt="English"></div>
+            <div class="nav-lang-btn" onclick="setLanguage('es')" title="Traducir al español"><img src="img/flag-es.png.png" alt="Español"></div>
+        </div>
+    </nav>
+    <ul class="nav-menu" id="navMenu">
+        <li class="nav-cta-mobile"><a href="contact.html" class="btn btn-primary">Prendre Rendez-vous</a></li>
+        <li><a href="cabinet.html">Le Cabinet</a></li>
+        <li><a href="equipe.html">L'Équipe</a></li>
+        <li><a href="traitements.html">Traitements</a></li>
+        <li class="nav-hide-mobile"><a href="engagements.html">Engagements Durables</a></li>
+        <li><a href="ressources.html">Ressources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-flags-mobile">
+            <div class="nav-lang-btn" onclick="setLanguage('fr')" title="Version française"><img src="img/Flag_of_France.svg.png" alt="Français"></div>
+            <div class="nav-lang-btn" onclick="setLanguage('en')" title="Translate to English"><img src="img/flag-uk.png.svg.png" alt="English"></div>
+            <div class="nav-lang-btn" onclick="setLanguage('es')" title="Traducir al español"><img src="img/flag-es.png.png" alt="Español"></div>
+        </li>
+    </ul>
+
+    <section class="inner-hero">
+        <div class="inner-hero-bg" style="background-image: url('img/slide-2.jpg');"></div>
+        <div class="inner-hero-overlay"></div>
+        <div class="inner-hero-content">
+            <span class="hero-eyebrow">Information juridique</span>
+            <h1>Mentions Légales</h1>
+        </div>
+    </section>
+
+    <section class="legal-section">
+
+        <h2>1. Éditeur du site</h2>
+        <p>
+            Le site <strong>orthodontiste-grenoble.fr</strong> est édité par le Cabinet d'Orthodontie des Docteurs PRÉVÉ, profession libérale réglementée.
+        </p>
+        <p>
+            <strong>Responsable de publication :</strong> Dr Simon PRÉVÉ<br>
+            <strong>Profession :</strong> Chirurgien-dentiste — Spécialiste qualifié en Orthodontie<br>
+            <strong>Adresse :</strong> 3 Avenue Alsace-Lorraine, 38000 Grenoble<br>
+            <strong>Téléphone :</strong> <a href="tel:0476463805">04 76 46 38 05</a><br>
+            <strong>Email :</strong> <a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a>
+        </p>
+
+        <h2>2. Hébergement</h2>
+        <p>
+            Ce site est hébergé par <strong>Netlify, Inc.</strong><br>
+            Adresse : 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis<br>
+            Site web : <a href="https://www.netlify.com" target="_blank" rel="noopener">www.netlify.com</a>
+        </p>
+
+        <h2>3. Propriété intellectuelle</h2>
+        <p>
+            L'ensemble des contenus présents sur ce site (textes, images, photographies, logos, vidéos, mise en page) est la propriété exclusive du Cabinet d'Orthodontie des Docteurs PRÉVÉ ou de ses partenaires, et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.
+        </p>
+        <p>
+            Toute reproduction, représentation, modification ou adaptation, totale ou partielle, de ces éléments est strictement interdite sans l'autorisation écrite préalable du cabinet.
+        </p>
+
+        <h2>4. Protection des données personnelles (RGPD)</h2>
+        <p>
+            Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et de portabilité de vos données personnelles.
+        </p>
+        <h3>Données collectées via le formulaire de contact</h3>
+        <p>
+            Les informations recueillies via le formulaire de contact (nom, prénom, email, téléphone, message) sont uniquement destinées au traitement de votre demande par le cabinet. Elles ne sont jamais transmises à des tiers à des fins commerciales et sont conservées pour la durée nécessaire au traitement de votre demande.
+        </p>
+        <h3>Exercice de vos droits</h3>
+        <p>
+            Pour exercer vos droits ou pour toute question relative à la protection de vos données, vous pouvez nous contacter par email à <a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a> ou par courrier à l'adresse du cabinet.
+        </p>
+
+        <h2>5. Cookies</h2>
+        <p>
+            Ce site utilise des cookies strictement nécessaires à son fonctionnement, ainsi que des cookies tiers liés aux services suivants :
+        </p>
+        <ul>
+            <li><strong>Google reCAPTCHA :</strong> protection du formulaire de contact contre le spam. Ces cookies sont déposés par Google.</li>
+            <li><strong>Google Translate :</strong> service de traduction automatique des pages. Ces cookies sont déposés lorsque vous utilisez la fonction de traduction.</li>
+        </ul>
+        <p>
+            Vous pouvez à tout moment modifier vos préférences en matière de cookies en cliquant sur le lien "Gérer les cookies" en bas de page, ou en configurant votre navigateur.
+        </p>
+        <p>
+            Pour en savoir plus sur les cookies, vous pouvez consulter le site de la <a href="https://www.cnil.fr/fr/cookies-et-autres-traceurs" target="_blank" rel="noopener">CNIL</a>.
+        </p>
+
+        <h2>6. Limitation de responsabilité</h2>
+        <p>
+            Les informations présentes sur ce site sont fournies à titre indicatif et ne sauraient se substituer à une consultation au cabinet. Le Dr PRÉVÉ ne peut être tenu responsable de l'utilisation faite des informations contenues sur ce site.
+        </p>
+        <p>
+            Le cabinet s'efforce de maintenir les informations du site à jour mais ne garantit pas l'exactitude, la complétude ou l'actualité des informations diffusées.
+        </p>
+
+        <h2>7. Crédits</h2>
+        <p>
+            <strong>Photographies :</strong> Christophe Levet — Photographe professionnel<br>
+            <strong>Conception du site :</strong> Cabinet d'Orthodontie des Docteurs PRÉVÉ
+        </p>
+
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-paired">
+                <h5>Comment nous rejoindre</h5>
+                <h5>Contact</h5>
+                <div class="footer-transport-item"><span class="ft-icon">🚲</span><div><strong>Mobilités douces</strong><span>Parking à trottinette au cabinet</span></div></div>
+                <div class="footer-contact-item">📞 <a href="tel:0476463805">04 76 46 38 05</a></div>
+                <div class="footer-transport-item"><span class="ft-icon">🚌</span><div><strong>Bus C1 — Tram A, B, C</strong><span>Arrêt Alsace-Lorraine</span></div></div>
+                <div class="footer-contact-item">✉️ <a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a></div>
+                <div class="footer-transport-item"><span class="ft-icon">🚗</span><div><strong>Voiture</strong><span>Parking K'Store — Av. Philippeville</span></div></div>
+                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><a href="https://www.google.com/maps/dir/?api=1&destination=3+Avenue+Alsace-Lorraine+38000+Grenoble&destination_place_id=ChIJh4kJUo9KiUcREsGtg6ikgCY" target="_blank" rel="noopener" style="transition:color 0.3s;">3 Avenue Alsace-Lorraine<br>38000 Grenoble</a></div>
+            </div>
+            <div class="footer-section">
+                <h5>Horaires</h5>
+                <ul class="footer-hours">
+                    <li data-days="1">Lundi : 9h–13h / 14h–18h30</li>
+                    <li data-days="2,3">Mardi–Mercredi : 9h–13h / 14h–18h</li>
+                    <li data-days="4">Jeudi : Fermé</li>
+                    <li data-days="5">Vendredi : 9h–13h30 / 15h–18h30</li>
+                    <li data-days="6,0">Samedi–Dimanche : Fermé</li>
+                </ul>
+            </div>
+            <div class="footer-badge"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ. Tous droits réservés.</p>
+            <p style="margin-top:0.5rem; font-size:0.85rem;"><a href="mentions-legales.html" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Mentions légales</a> · <a href="javascript:void(0)" onclick="document.getElementById('cookieBanner').style.display='flex'" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Gérer les cookies</a> · <a href="https://www.ordre-chirurgiens-dentistes.fr/annuaire/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Annuaire de l'Ordre</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        document.querySelectorAll('.nav-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('navMenu').classList.remove('open'); document.body.classList.remove('menu-open');
+                document.querySelector('.hamburger').classList.remove('active');
+            });
+        });
+        (function(){
+            var menu = document.getElementById('navMenu');
+            menu.addEventListener('touchmove', function(e){ e.preventDefault(); }, { passive: false });
+            menu.addEventListener('click', function(e){ if (e.target === menu) { e.stopPropagation(); e.preventDefault(); } });
+        })();
+    </script>
+    <script>
+        (function() {
+            var today = new Date().getDay();
+            document.querySelectorAll('.footer-hours li').forEach(function(li) {
+                var days = li.getAttribute('data-days').split(',').map(Number);
+                if (days.indexOf(today) !== -1) li.classList.add('today');
+            });
+        })();
+    </script>
+    <div id="google_translate_element" style="display:none"></div>
+    <script>
+        function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'fr', includedLanguages: 'en,es', autoDisplay: false }, 'google_translate_element'); }
+        function getCurrentLang() { var match = document.cookie.match(/googtrans=\/fr\/([^;]+)/); return match ? match[1] : 'fr'; }
+        function setLanguage(lang) { var current = getCurrentLang(); if (lang === current) { document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname; window.location.reload(true); return; } if (lang === 'fr') { document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname; window.location.reload(true); return; } var select = document.querySelector('.goog-te-combo'); if (!select) { setTimeout(function() { setLanguage(lang); }, 400); return; } select.value = lang; select.dispatchEvent(new Event('change')); }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- Bandeau Cookies -->
+<div id="cookieBanner" class="cookie-banner">
+    <p>Ce site utilise des cookies nécessaires à son fonctionnement (reCAPTCHA, traduction). En poursuivant votre navigation, vous acceptez leur utilisation. <a href="mentions-legales.html">En savoir plus</a></p>
+    <div class="cookie-banner-buttons">
+        <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accepter</button>
+        <button class="cookie-btn cookie-btn-refuse" onclick="refuseCookies()">Refuser</button>
+    </div>
+</div>
+<script>
+(function(){ if(!localStorage.getItem("cookieConsent")){document.getElementById("cookieBanner").style.display="flex";} })();
+function acceptCookies(){localStorage.setItem("cookieConsent","accepted");document.getElementById("cookieBanner").style.display="none";}
+function refuseCookies(){localStorage.setItem("cookieConsent","refused");document.getElementById("cookieBanner").style.display="none";}
+</script>
+</body>
+</html>

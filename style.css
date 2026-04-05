@@ -369,8 +369,8 @@ footer { background: var(--dark-green); color: white; padding: 3rem 0; }
 /* Paired block: spans 2 columns of parent, uses same column-gap internally */
 .footer-paired { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; row-gap: 1.1rem; align-items: center; }
 .footer-paired > h5 { color: white; font-size: 1rem; font-weight: 700; letter-spacing: 0.03em; margin-bottom: 0.1rem; align-self: end; }
-.footer-transport-item { display: flex; align-items: flex-start; gap: 0.7rem; }
-.footer-transport-item .ft-icon { font-size: 1.1rem; line-height: 1.4; flex-shrink: 0; }
+.footer-transport-item { display: flex; align-items: center; gap: 0.7rem; }
+.footer-transport-item .ft-icon { font-size: 2.1rem; line-height: 1.4; flex-shrink: 0; }
 .footer-transport-item strong { display: block; color: white; font-size: 0.92rem; font-weight: 600; line-height: 1.3; }
 .footer-transport-item span { display: block; color: rgba(255,255,255,0.6); font-size: 0.82rem; margin-top: 0.1rem; }
 .footer-contact-item { color: rgba(255,255,255,0.8); font-size: 0.9rem; display: flex; align-items: center; gap: 0.3em; }
@@ -454,4 +454,149 @@ body.menu-open { overflow: hidden; position: fixed; width: 100%; }
 }
 body {
     top: 0 !important;
+}
+
+/* ── POPUP FERMETURE TEMPORAIRE ── */
+.closure-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+.closure-popup {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    max-width: 520px;
+    width: 100%;
+    padding: 2.5rem 2.2rem 2rem;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: closureAppear 0.35s ease both;
+}
+@keyframes closureAppear {
+    from { opacity: 0; transform: scale(0.92) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.closure-popup .closure-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+.closure-popup h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-green);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+.closure-popup p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+.closure-popup a {
+    color: var(--dark-green);
+    font-weight: 600;
+    text-decoration: underline;
+}
+.closure-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    padding: 0.2rem 0.5rem;
+    line-height: 1;
+}
+.closure-close:hover { opacity: 1; }
+@media (max-width: 768px) {
+    .closure-popup {
+        padding: 2rem 1.5rem 1.5rem;
+        max-width: 92vw;
+    }
+    .closure-popup h3 { font-size: 1.2rem; }
+    .closure-popup p { font-size: 0.88rem; }
+}
+
+/* ── BANDEAU COOKIES ── */
+.cookie-banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(30, 86, 49, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    padding: 1.2rem 2rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+.cookie-banner p {
+    margin: 0;
+    max-width: 700px;
+    color: rgba(255,255,255,0.9);
+}
+.cookie-banner a {
+    color: var(--gold);
+    text-decoration: underline;
+}
+.cookie-banner-buttons {
+    display: flex;
+    gap: 0.8rem;
+    flex-shrink: 0;
+}
+.cookie-btn {
+    padding: 0.55rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+.cookie-btn-accept {
+    background: var(--gold);
+    color: white;
+}
+.cookie-btn-accept:hover {
+    background: #b8963f;
+    transform: translateY(-1px);
+}
+.cookie-btn-refuse {
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    border: 1.5px solid rgba(255,255,255,0.4);
+}
+.cookie-btn-refuse:hover {
+    border-color: white;
+    color: white;
+}
+@media (max-width: 768px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.2rem 1rem;
+        gap: 1rem;
+    }
+    .cookie-banner p { font-size: 0.85rem; }
 }
