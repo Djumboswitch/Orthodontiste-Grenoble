@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/Desktop/site
+cd ~/Documents/Claude/Projects/site
 git add .
 git commit -m "Mise à jour du site"
 git push origin main
