@@ -1,9 +1,51 @@
 [
     {
-        "debut": "2026-04-03T18:30",
-        "fin": "2026-04-07T00:00",
-        "icon": "🐣",
-        "titre": "Fermeture — Lundi de Pâques",
-        "message": "Le cabinet sera fermé ce Lundi 6/04, pour toute urgence veuillez nous contacter sur Dentapoche et pour toute autre demande veuillez nous envoyer un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le mardi 7 avril à partir de 9h.<br><br>Joyeuses Pâques 🐣"
+        "debut": "2026-04-10T18:30",
+        "fin": "2026-04-20T00:00",
+        "icon": "🐰",
+        "titre": "Fermeture — Vacances de Pâques",
+        "message": "Le cabinet est fermé du lundi 13 au vendredi 17 avril. Pour toute urgence, veuillez nous contacter sur Dentapoche. Pour toute autre demande, envoyez-nous un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le lundi 20 avril à partir de 9h.<br><br>Joyeuses Pâques 🐰"
+    },
+    {
+        "debut": "2026-04-29T18:00",
+        "fin": "2026-05-04T00:00",
+        "icon": "💐",
+        "titre": "Fermeture — 1er Mai",
+        "message": "Le cabinet est fermé ce vendredi 1er mai. Pour toute urgence, veuillez nous contacter sur Dentapoche. Pour toute autre demande, envoyez-nous un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le lundi 4 mai à partir de 9h.<br><br>Bonne fête du Travail 💐"
+    },
+    {
+        "debut": "2026-05-06T18:00",
+        "fin": "2026-05-11T00:00",
+        "icon": "🇫🇷",
+        "titre": "Fermeture — 8 Mai",
+        "message": "Le cabinet est fermé ce vendredi 8 mai. Pour toute urgence, veuillez nous contacter sur Dentapoche. Pour toute autre demande, envoyez-nous un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le lundi 11 mai à partir de 9h."
+    },
+    {
+        "debut": "2026-05-13T18:00",
+        "fin": "2026-05-18T00:00",
+        "icon": "✨",
+        "titre": "Fermeture — Pont de l'Ascension",
+        "message": "Le cabinet est fermé le vendredi 15 mai. Pour toute urgence, veuillez nous contacter sur Dentapoche. Pour toute autre demande, envoyez-nous un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le lundi 18 mai à partir de 9h.<br><br>Bon week-end prolongé ✨"
+    },
+    {
+        "debut": "2026-05-22T18:30",
+        "fin": "2026-05-26T00:00",
+        "icon": "🕊️",
+        "titre": "Fermeture — Lundi de Pentecôte",
+        "message": "Le cabinet est fermé ce lundi 25 mai. Pour toute urgence, veuillez nous contacter sur Dentapoche. Pour toute autre demande, envoyez-nous un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le mardi 26 mai à partir de 9h."
+    },
+    {
+        "debut": "2026-07-13T18:30",
+        "fin": "2026-07-15T00:00",
+        "icon": "🎆",
+        "titre": "Fermeture — 14 Juillet",
+        "message": "Le cabinet est fermé ce mardi 14 juillet. Pour toute urgence, veuillez nous contacter sur Dentapoche. Pour toute autre demande, envoyez-nous un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le mercredi 15 juillet à partir de 9h.<br><br>Bonne fête nationale 🎆"
+    },
+    {
+        "debut": "2026-07-24T18:30",
+        "fin": "2026-08-24T00:00",
+        "icon": "🏖️",
+        "titre": "Fermeture — Vacances d'été",
+        "message": "Le cabinet est fermé du lundi 27 juillet au vendredi 21 août. Pour toute urgence, veuillez nous contacter sur Dentapoche. Pour toute autre demande, envoyez-nous un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le lundi 24 août à partir de 9h.<br><br>Bonnes vacances 🏖️"
     }
 ]
