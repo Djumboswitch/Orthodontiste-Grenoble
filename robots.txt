@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://orthodontiste-grenoble.fr/sitemap.xml
+Sitemap: https://preve-orthodontiste-grenoble.fr/sitemap.xml
