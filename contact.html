@@ -484,18 +484,64 @@
         // FormSubmit — URL de retour
         document.getElementById('formNext').value = window.location.href.split('?')[0] + '?merci=1';
 
-        // Afficher le message de succès si retour après soumission
+        // ── Anti-doubles-soumissions ──
+        const COOLDOWN_MS = 30 * 60 * 1000;    // 30 min après envoi réussi
+        const IN_PROGRESS_MS = 2 * 60 * 1000;  // 2 min pendant qu'une soumission est en cours
+
+        function submitLockReason() {
+            const last = parseInt(localStorage.getItem('lastFormSubmit') || '0', 10);
+            if (last && (Date.now() - last) < COOLDOWN_MS) return 'done';
+            const pending = parseInt(localStorage.getItem('formInProgress') || '0', 10);
+            if (pending && (Date.now() - pending) < IN_PROGRESS_MS) return 'pending';
+            return null;
+        }
+
+        function lockForm(btnText) {
+            const btn = document.querySelector('#contactForm button[type="submit"]');
+            if (!btn) return;
+            btn.disabled = true;
+            btn.textContent = btnText;
+            btn.style.opacity = '0.6';
+            btn.style.cursor = 'not-allowed';
+        }
+
+        function showFormNotice(html) {
+            const form = document.getElementById('contactForm');
+            if (!form || document.getElementById('form-notice')) return;
+            const notice = document.createElement('div');
+            notice.id = 'form-notice';
+            notice.style.cssText = 'background:#FFF9E6;border:1.5px solid var(--gold);border-radius:10px;padding:1rem 1.5rem;margin-bottom:1.5rem;color:#856404;font-size:0.92rem;text-align:center;line-height:1.6;';
+            notice.innerHTML = html;
+            form.prepend(notice);
+        }
+
+        // Afficher le message de succès si retour après soumission + mémoriser le succès
         if (new URLSearchParams(window.location.search).get('merci') === '1') {
+            localStorage.setItem('lastFormSubmit', Date.now().toString());
+            localStorage.removeItem('formInProgress');
             document.getElementById('form-success').style.display = 'block';
             document.getElementById('contactForm').style.display = 'none';
             setTimeout(() => {
                 document.getElementById('formulaire').scrollIntoView({ behavior: 'smooth' });
             }, 200);
+        } else {
+            // Si un verrou est actif (envoi récent ou en cours), on bloque le formulaire
+            const reason = submitLockReason();
+            if (reason === 'done') {
+                lockForm('Message déjà envoyé récemment');
+                showFormNotice('⏱ Vous avez déjà envoyé un message récemment. Nous vous répondrons dans les meilleurs délais.<br>Pour toute <strong>urgence</strong>, appelez-nous au <a href="tel:0476463805" style="color:#856404; font-weight:700;">04 76 46 38 05</a>.');
+            } else if (reason === 'pending') {
+                lockForm('Envoi en cours…');
+                showFormNotice('⏱ Votre précédent envoi est en cours de traitement. Merci de patienter quelques instants.');
+            }
         }
 
-        // Validation du formulaire
+        // Validation du formulaire + verrou anti-double-clic
+        let isSubmitting = false;
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            if (isSubmitting || submitLockReason()) return;
+
             const email = document.getElementById('email').value.trim();
             const emailConfirm = document.getElementById('email-confirm').value.trim();
             const fichier = document.getElementById('fichier').files[0];
@@ -505,6 +551,11 @@
             if (email !== emailConfirm) { showError('Les adresses email ne correspondent pas.'); document.getElementById('email-confirm').focus(); return; }
             if (fichier && fichier.size > 10 * 1024 * 1024) { showError('Le fichier dépasse la taille maximale de 10 Mo.'); return; }
             if (!grecaptcha.getResponse()) { showError('Veuillez cocher la case "Je ne suis pas un robot".'); return; }
+
+            // Tout est valide : on verrouille puis on envoie
+            isSubmitting = true;
+            localStorage.setItem('formInProgress', Date.now().toString());
+            lockForm('Envoi en cours…');
             this.submit();
         });
 
