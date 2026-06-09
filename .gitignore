@@ -1,1 +1,11 @@
 maquettes/
+
+# Métadonnées macOS (ne doivent jamais être versionnées)
+.DS_Store
+
+# Scripts internes du Dr Prévé — gardés en local, hors du dépôt public
+*.command
+
+# Documents de travail internes — déplacés hors du dépôt (../site-fichiers-internes/)
+/À mettre en place/
+/À corriger/
