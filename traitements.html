@@ -337,13 +337,13 @@
             if (lang === current) {
                 // Retour au français
                 document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname;
+                (function(h){var p=h.split('.');for(var i=0;i<p.length-1;i++){var d=p.slice(i).join('.');document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain='+d+';';document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.'+d+';';}})(window.location.hostname);
                 window.location.reload(true);
                 return;
             }
             if (lang === 'fr') {
                 document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname;
+                (function(h){var p=h.split('.');for(var i=0;i<p.length-1;i++){var d=p.slice(i).join('.');document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain='+d+';';document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.'+d+';';}})(window.location.hostname);
                 window.location.reload(true);
                 return;
             }
