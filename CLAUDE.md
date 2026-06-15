@@ -34,8 +34,9 @@ correspondant. Ce CLAUDE.md couvre uniquement la partie technique.
 
 Site vitrine statique du Cabinet d'Orthodontie des Docteurs PRÉVÉ
 (Grenoble), hébergé sur GitHub Pages avec domaine personnalisé
-`preve-orthodontiste-grenoble.fr` (HTTPS via certificat Let's Encrypt
-fourni par GitHub).
+`www.preve-orthodontiste-grenoble.fr` (domaine **canonique** défini dans
+le `CNAME` ; le non-www `preve-orthodontiste-grenoble.fr` redirige en 301
+vers le www). HTTPS via certificat Let's Encrypt fourni par GitHub.
 
 Pages publiques (8) :
 - `index.html` — accueil
@@ -60,7 +61,7 @@ Fonctionnalités côté client :
 - Données de fermetures du cabinet dans `fermetures.json`
 
 Domaine secondaire `orthodontiste-grenoble.fr` : redirection 301 vers
-le domaine principal, gérée via un **dépôt séparé** `site-redirect/`
+le domaine principal (`www.preve-orthodontiste-grenoble.fr`), gérée via un **dépôt séparé** `site-redirect/`
 (GitHub Pages indépendant, sa propre CNAME). Ne pas fusionner les deux
 dépôts (GitHub Pages = un seul domaine personnalisé par repo).
 
@@ -77,7 +78,7 @@ dépôts (GitHub Pages = un seul domaine personnalisé par repo).
 
 ```
 site/
-├── CNAME                          # Domaine GitHub Pages (preve-orthodontiste-grenoble.fr)
+├── CNAME                          # Domaine canonique GitHub Pages (www.preve-orthodontiste-grenoble.fr)
 ├── index.html                     # Accueil
 ├── cabinet.html
 ├── equipe.html
@@ -131,7 +132,7 @@ python3 -m http.server 8080
 ./🚀\ Déployer.command
 ```
 Effectue `git add . && git commit -m "Mise à jour du site" && git push origin main`.
-Le site est visible sur `preve-orthodontiste-grenoble.fr` ~15 secondes
+Le site est visible sur `www.preve-orthodontiste-grenoble.fr` ~15 secondes
 après le push (build GitHub Pages).
 
 Équivalent manuel :
@@ -153,8 +154,11 @@ l'URL du remote `origin`.
 ### Vérifications DNS / HTTPS (debug)
 
 ```bash
-dig +short preve-orthodontiste-grenoble.fr
-dig +short @8.8.8.8 preve-orthodontiste-grenoble.fr
+dig +short www.preve-orthodontiste-grenoble.fr
+dig +short @8.8.8.8 www.preve-orthodontiste-grenoble.fr
+curl -sI https://www.preve-orthodontiste-grenoble.fr/
+
+# Le non-www doit rediriger (301) vers le www :
 curl -sI https://preve-orthodontiste-grenoble.fr/
 ```
 
