@@ -46,6 +46,7 @@
                 document.getElementById("closureTitle").textContent = f.titre;
                 document.getElementById("closureText").innerHTML = f.message;
                 document.getElementById("closureOverlay").style.display = "flex";
+                sessionStorage.setItem("closureSeen", "1");
                 break;
             }
         }
@@ -114,7 +115,7 @@
                     </ul>
                 </div>
                 <div class="team-card">
-                    <div class="team-photo"><img src="img/dr-simon.jpg" alt="Dr Simon Prévé"></div>
+                    <div class="team-photo"><img src="img/dr-simon.jpg?v=2" alt="Dr Simon Prévé"></div>
                     <h3 class="team-name">Dr Simon Prévé</h3>
                     <div class="team-role">Spécialiste qualifié en orthodontie</div>
                     <p class="team-desc">Spécialiste qualifié avec formation européenne de haut niveau, actif dans la recherche scientifique et membre de sociétés d'orthodontie internationales.</p>

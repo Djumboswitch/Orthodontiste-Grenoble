@@ -73,6 +73,7 @@
                 document.getElementById("closureTitle").textContent = f.titre;
                 document.getElementById("closureText").innerHTML = f.message;
                 document.getElementById("closureOverlay").style.display = "flex";
+                sessionStorage.setItem("closureSeen", "1");
                 break;
             }
         }

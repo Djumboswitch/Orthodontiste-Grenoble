@@ -42,10 +42,10 @@
         "message": "Le cabinet est fermé ce mardi 14 juillet. Pour toute urgence, veuillez nous contacter sur Dentapoche. Pour toute autre demande, envoyez-nous un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le mercredi 15 juillet à partir de 9h.<br><br>Bonne fête nationale 🎆"
     },
     {
-        "debut": "2026-07-24T18:30",
-        "fin": "2026-08-24T00:00",
-        "icon": "🏖️",
-        "titre": "Fermeture — Vacances d'été",
-        "message": "Le cabinet est fermé du lundi 27 juillet au vendredi 21 août. Pour toute urgence, veuillez nous contacter sur Dentapoche. Pour toute autre demande, envoyez-nous un <a href='mailto:contact@orthopreve.com'>mail</a> qui sera traité dès notre retour le lundi 24 août à partir de 9h.<br><br>Bonnes vacances 🏖️"
+        "debut": "2026-07-24T14:30",
+        "fin": "2026-08-24T09:00",
+        "icon": "",
+        "titre": "☀️ Fermeture — Congés d'été ☀️",
+        "message": "Notre cabinet est actuellement fermé pour les congés d'été jusqu'au lundi 24 août à partir de 09h00.<br><br>En cas d'urgence orthodontique (bague décollée, fil blessant, douleur…), nous vous invitons à nous contacter via Dentapoche.<br><br>Toute l'équipe des Drs Prévé vous souhaite de bonnes vacances 🏖️ 😎"
     }
 ]
