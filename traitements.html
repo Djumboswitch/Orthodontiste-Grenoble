@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traitements Orthodontiques — Orthodontiste Grenoble | Dr PRÉVÉ</title>
-    <meta name="description" content="Traitements orthodontiques à Grenoble : aligneurs invisibles, bagues céramiques et métalliques, orthodontie linguale, appareils fonctionnels. Pour adultes et enfants. Cabinet des Docteurs PRÉVÉ.">
+    <title>Traitements orthodontiques à Grenoble — bagues, aligneurs, lingual, orthopédie | Dr PRÉVÉ</title>
+    <meta name="description" content="Traitements orthodontiques à Grenoble : appareils multi-bagues métal et céramique, aligneurs dentaires (gouttières transparentes), orthodontie linguale, orthopédie dento-faciale. Enfants, adolescents et adultes. Cabinet des Docteurs PRÉVÉ.">
     <link rel="canonical" href="https://www.preve-orthodontiste-grenoble.fr/traitements.html">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Traitements Orthodontiques — Orthodontiste Grenoble">
@@ -12,7 +12,7 @@
     <meta property="og:url" content="https://www.preve-orthodontiste-grenoble.fr/traitements.html">
     <meta property="og:site_name" content="Cabinet d'Orthodontie des Docteurs PRÉVÉ">
     <meta property="og:locale" content="fr_FR">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
@@ -72,11 +72,23 @@
             </div>
         </div>
     </nav>
+    <header class="masthead">
+        <p class="masthead-title">Cabinet d'Orthodontie des Docteurs Prévé<span>Orthodontistes à Grenoble — 38000</span></p>
+        <hr class="masthead-rule">
+    </header>
+
         <ul class="nav-menu" id="navMenu">
             <li class="nav-cta-mobile"><a href="contact.html" class="btn btn-primary">Prendre Rendez-vous</a></li>
             <li><a href="cabinet.html">Le Cabinet</a></li>
             <li><a href="equipe.html">L'Équipe</a></li>
-            <li><a href="traitements.html" class="active">Traitements</a></li>
+            <li class="nav-dropdown"><a href="traitements.html" class="active">Traitements</a>
+                <ul class="nav-submenu">
+                    <li><a href="traitement-multibagues.html">Multi-bagues métal &amp; céramique</a></li>
+                    <li><a href="traitement-aligneurs.html">Aligneurs dentaires</a></li>
+                    <li><a href="traitement-lingual.html">Orthodontie linguale</a></li>
+                    <li><a href="traitement-disjoncteur.html">Orthopédie : le disjoncteur</a></li>
+                </ul>
+            </li>
             <li class="nav-hide-mobile"><a href="engagements.html">Engagements Durables</a></li>
             <li><a href="ressources.html">Ressources</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -87,54 +99,48 @@
             </li>
         </ul>
 
-    <section class="inner-hero">
-        <div class="inner-hero-bg" style="background-image: url('img/hero-traitements.jpg'); background-position: center 60%;"></div>
-        <div class="inner-hero-overlay"></div>
-        <div class="inner-hero-content">
-            <span class="hero-eyebrow">EXPERTISE — TECHNOLOGIE</span>
-            <h1>Nos Traitements</h1>
-            <p class="hero-sub">Solutions modernes pour tous les âges</p>
-        </div>
-    </section>
-
-    <section class="alt-bg" style="padding: 2rem 2rem 2rem;">
+    <section class="alt-bg deco deco-cards" style="padding: 3rem 2rem 2rem;">
         <div class="section-container">
-            <h2 style="margin-bottom: 1.5rem;">Nos Techniques</h2>
+            <h1 style="font-size: 2.8rem; margin-bottom: 1.5rem;">Les techniques orthodontiques proposées au cabinet</h1>
             <div class="treatments-visual-grid">
 
-                <div class="treatment-visual-card reveal">
+                <div class="treatment-visual-card reveal" id="vestibulaire">
                     <div class="treatment-visual-img" style="background-image: url('img/traitement-metal.jpg');"></div>
                     <div class="treatment-visual-body">
-                        <span class="treatment-tag">Efficacité</span>
-                        <h3>Bagues Vestibulaires Métal</h3>
-                        <p>La solution classique et éprouvée. Robustes, efficaces et très économiques pour tous les types de corrections.</p>
+                        <span class="treatment-tag">La référence</span>
+                        <h3>Appareils multi-bagues — métal &amp; céramique</h3>
+                        <p>La technique classique et éprouvée. Robustes, efficaces et économiques, les bagues métalliques sont le plus souvent proposées chez l'enfant et l'adolescent. Les attaches céramiques offrent une alternative esthétique qui peut remplacer partiellement le métal, notamment chez l'adulte.</p>
+                        <a class="td-more" href="traitement-multibagues.html">En savoir plus sur les multi-bagues →</a>
                     </div>
                 </div>
 
-                <div class="treatment-visual-card reveal">
+                <div class="treatment-visual-card reveal" id="aligneurs">
                     <div class="treatment-visual-img" style="background-image: url('img/traitement-aligneurs.jpg');"></div>
                     <div class="treatment-visual-body">
                         <span class="treatment-tag">Discrétion</span>
-                        <h3>Aligneurs Invisibles</h3>
-                        <p>Des gouttières transparentes et amovibles pour un traitement discret. Solution esthétique idéale pour les adultes et adolescents actifs.</p>
+                        <h3>Aligneurs dentaires (gouttières transparentes)</h3>
+                        <p>Des gouttières amovibles en plastique transparent qui se renouvellent à intervalles réguliers pour les déplacer progressivement. Dans les cas complexes, ils s'associent à des accessoires ou à d'autres appareils (traitement hybride).</p>
+                        <a class="td-more" href="traitement-aligneurs.html">En savoir plus sur les aligneurs →</a>
                     </div>
                 </div>
 
-                <div class="treatment-visual-card reveal">
-                    <div class="treatment-visual-img" style="background-image: url('img/traitement-ceramique.jpg');"></div>
-                    <div class="treatment-visual-body">
-                        <span class="treatment-tag">Esthétique</span>
-                        <h3>Attaches Céramiques</h3>
-                        <p>Esthétique supérieure avec une tenue optimale. Ces bagues discrètes se confondent avec vos dents naturelles.</p>
-                    </div>
-                </div>
-
-                <div class="treatment-visual-card reveal">
+                <div class="treatment-visual-card reveal" id="lingual">
                     <div class="treatment-visual-img" style="background-image: url('img/traitement-linguale.jpg');"></div>
                     <div class="treatment-visual-body">
                         <span class="treatment-tag">Invisibilité</span>
-                        <h3>Orthodontie Linguale</h3>
-                        <p>Les bagues placées à l'intérieur des dents offrent une discrétion maximale. Parfait pour les patients soucieux de l'esthétique.</p>
+                        <h3>Orthodontie linguale</h3>
+                        <p>Des brackets réalisés sur mesure et collés sur la face interne des dents : l'appareil est invisible de l'extérieur. Une technique privilégiée par les adultes qui souhaitent un traitement totalement discret.</p>
+                        <a class="td-more" href="traitement-lingual.html">En savoir plus sur le lingual →</a>
+                    </div>
+                </div>
+
+                <div class="treatment-visual-card reveal" id="orthopedique">
+                    <div class="treatment-visual-img" style="background-image: url('img/traitement-orthopedique.jpg');"></div>
+                    <div class="treatment-visual-body">
+                        <span class="treatment-tag">Croissance</span>
+                        <h3>Orthopédie dento-faciale</h3>
+                        <p>Chez l'enfant et l'adolescent, les appareils orthopédiques guident le développement des mâchoires — par exemple un disjoncteur pour élargir le palais. Réalisés en amont ou en complément d'un traitement multi-bagues, ils permettent de corriger tôt certains décalages entre les mâchoires.</p>
+                        <a class="td-more" href="traitement-disjoncteur.html">En savoir plus sur le disjoncteur →</a>
                     </div>
                 </div>
 
@@ -142,7 +148,10 @@
         </div>
     </section>
 
-    <section class="alt-bg" style="padding: 2rem 2rem;">
+    <!-- Grande vague : le beige des techniques se termine en une ondulation ample sur le parcours -->
+    <div class="wave-sep wave-sep--large" aria-hidden="true" style="background:#F8FAF9;"><svg viewBox="0 0 1440 110" preserveAspectRatio="none"><path d="M0,55 Q360,125 720,55 Q1080,-15 1440,55 V0 H0 Z" fill="#F5F2ED"/></svg></div>
+
+    <section style="padding: 2rem 2rem 12rem; background: #F8FAF9;">
         <div class="section-container">
             <h2 style="margin-bottom: 4rem;">Votre Parcours de Soins</h2>
             <div class="parcours-timeline">
@@ -165,30 +174,20 @@
                 <div class="parcours-step reveal">
                     <div class="parcours-icon-wrap">
                         <span class="parcours-num">2</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="7"/>
-                            <path d="M21 21l-4.35-4.35"/>
-                            <path d="M8 11a3 3 0 006 0"/>
-                            <path d="M11 8v1"/>
-                        </svg>
+                        <img src="img/icone-radiographie.png" alt="" width="71" height="71">
                     </div>
                     <h4>Examens Complémentaires</h4>
-                    <p>Radiographies, photographies et empreintes numériques 3D pour établir un bilan orthodontique complet et précis.</p>
+                    <p>Radiographies et analyse céphalométrique, photographies et modèles numériques 3D pour établir un bilan orthodontique complet et précis.</p>
                 </div>
 
                 <!-- Étape 3 -->
                 <div class="parcours-step reveal">
                     <div class="parcours-icon-wrap">
                         <span class="parcours-num">3</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2C9.5 2 7 4 7 7c0 2 .6 4.2 1.2 6.3L9.5 21h2l.5-3 .5 3h2l1.3-7.7C16.4 11.2 17 9 17 7c0-3-2.5-5-5-5z"/>
-                            <line x1="9" y1="10" x2="15" y2="10"/>
-                            <circle cx="10.5" cy="10" r="1" fill="currentColor" stroke="none"/>
-                            <circle cx="13.5" cy="10" r="1" fill="currentColor" stroke="none"/>
-                        </svg>
+                        <img class="icon-large" src="img/icone-bagues.png" alt="" width="183" height="68">
                     </div>
                     <h4>Pose de l'Appareillage</h4>
-                    <p>Mise en place soigneuse de votre appareil avec explications détaillées sur l'hygiène et les consignes à suivre.</p>
+                    <p>Mise en place partielle ou totale de votre appareil avec explications détaillées sur l'hygiène et les consignes à suivre.</p>
                 </div>
 
                 <!-- Étape 4 -->
@@ -215,7 +214,7 @@
                         </svg>
                     </div>
                     <h4>Fin du Traitement</h4>
-                    <p>Dépose de l'appareillage et vérification du résultat final. Votre nouveau sourire est là — félicitations !</p>
+                    <p>Dépose de l'appareillage - Votre nouveau sourire est là. Pose de la contention pour garantir la stabilité et la fonction de votre occlusion.</p>
                 </div>
 
                 <!-- Étape 6 -->
@@ -235,18 +234,40 @@
         </div>
     </section>
 
-    <section class="alt-bg" style="padding: 2rem 2rem 5rem;">
+    <!-- Vaguelettes de transition : le parcours de soins se termine en ondulations au-dessus des cercles -->
+    <div class="wave-sep" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,22 q45,20 90,0 q45,-20 90,0 q45,20 90,0 q45,-20 90,0 q45,20 90,0 q45,-20 90,0 q45,20 90,0 q45,-20 90,0 q45,20 90,0 q45,-20 90,0 q45,20 90,0 q45,-20 90,0 q45,20 90,0 q45,-20 90,0 q45,20 90,0 q45,-20 90,0 V0 H0 Z" fill="#F8FAF9"/></svg></div>
+
+    <section class="faq-section" style="padding: 2rem 2rem 5rem;">
+        <!-- Fond fixe : trois cercles concentriques visibles uniquement derrière la FAQ -->
+        <div class="faq-backdrop" aria-hidden="true"><span></span><span></span><span></span></div>
         <div class="section-container">
-            <h2 style="margin-bottom: 4rem;">FAQ</h2>
+            <h2>Questions fréquentes sur les traitements d'orthodontie</h2>
+            <p class="faq-intro">Âge de début, durée, douleur, remboursement… Vous trouverez ci-dessous les réponses aux questions qui nous sont le plus souvent posées au cabinet. Pour toute autre interrogation, n'hésitez pas à <a href="contact.html">nous contacter</a>.</p>
             <div class="faq-container">
-                <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span>Pourquoi consulter un orthodontiste spécialiste qualifié ?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Les spécialistes qualifiés en orthopédie dento-faciale sont des chirurgiens-dentistes ayant complété 3 années supplémentaires à plein temps, associant enseignement universitaire et exercice clinique en CHU, exclusivement dédiées à l'orthodontie.</p><p>À noter : certains chirurgiens-dentistes pratiquent l'orthodontie sans être titulaires de cette spécialité. Pour vérifier qu'un praticien l'est, consultez l'annuaire du <a href="https://www.ordre-chirurgiens-dentistes.fr/annuaire/" target="_blank" rel="noopener" style="color: var(--dark-green); font-weight: 600;">Conseil de l'Ordre des Chirurgiens-Dentistes</a> en sélectionnant la rubrique « Spécialiste en Orthopédie dento-faciale (ODF) ».</p></div></div>
-                <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span>À quel âge peut-on débuter un traitement orthodontique ?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Il n'y a pas d'âge limite ! L'orthodontie convient aussi bien aux enfants qu'aux adultes. Le meilleur moment dépend de chaque cas particulier. Nous recommandons une première consultation vers 7-8 ans.</p></div></div>
-                <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span>Comment se passe la prise en charge par l'assurance maladie ?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>La Sécurité Sociale accorde un remboursement pour les traitements d'orthodontie à condition qu'ils soient débutés avant l'âge de 16 ans. Les adultes ne bénéficient généralement pas d'une couverture, mais certaines mutuelles proposent des remboursements partiels.</p></div></div>
-                <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span>Combien de temps dure un traitement orthodontique ?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>La Sécurité Sociale accorde un remboursement jusqu'à 3 ans de traitement. Mais chaque cas est unique, et donc la durée du traitement est variable. Elle est surtout fonction du type de malocclusion, de l'appareillage, des objectifs de traitement, de la coopération du patient dans son assiduité aux rendez-vous et dans le port des élastiques. Une estimation vous sera donnée lors de l'explication du plan de traitement.</p></div></div>
+                <div class="faq-col">
+                <div class="faq-item" id="faq-specialiste"><button class="faq-question active" onclick="toggleFAQ(this)"><span>Pourquoi consulter un orthodontiste spécialiste qualifié ?</span><span class="faq-toggle">+</span></button><div class="faq-answer active"><p>Les spécialistes qualifiés en orthopédie dento-faciale sont des chirurgiens-dentistes ayant complété 3 années supplémentaires à plein temps, associant enseignement universitaire et exercice clinique en CHU, exclusivement dédiées à l'orthodontie.</p><p>À noter : certains chirurgiens-dentistes pratiquent l'orthodontie sans être titulaires de cette spécialité. Pour vérifier qu'un praticien l'est, consultez l'annuaire du <a href="https://www.ordre-chirurgiens-dentistes.fr/annuaire/" target="_blank" rel="noopener" style="color: var(--dark-green); font-weight: 600;">Conseil de l'Ordre des Chirurgiens-Dentistes</a> en sélectionnant la rubrique « Spécialiste en Orthopédie dento-faciale (ODF) ».</p></div></div>
+                <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span>Comment prendre rendez-vous ?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Par téléphone au <a href="tel:0476463805" style="color: var(--dark-green); font-weight: 600;">04&nbsp;76&nbsp;46&nbsp;38&nbsp;05</a>, en ligne via <a href="https://www.doctolib.fr/orthodontiste/grenoble/simon-preve-grenoble/booking/motives?specialityId=270&amp;telehealth=false&amp;placeId=practice-712792&amp;source=profile" target="_blank" rel="noopener" style="color: var(--dark-green); font-weight: 600;">Doctolib</a>, ou au moyen du <a href="contact.html#formulaire" style="color: var(--dark-green); font-weight: 600;">formulaire de contact</a> du site.</p></div></div>
                 <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span>Le traitement orthodontique est-il douloureux ?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Non, le traitement n'est pas douloureux. On peut ressentir une légère tension ou sensibilité quelques jours après la pose ou l'activation. Cela est normal et diminue rapidement. Les aligneurs invisibles sont généralement moins inconfortables.</p></div></div>
+                </div>
+                <div class="faq-col">
+                <div class="faq-item"><button class="faq-question active" onclick="toggleFAQ(this)"><span>À quel âge peut-on débuter un traitement orthodontique ?</span><span class="faq-toggle">+</span></button><div class="faq-answer active"><p>Il n'y a pas d'âge limite ! L'orthodontie convient aussi bien aux enfants qu'aux adultes. Le meilleur moment dépend de chaque cas particulier. Nous recommandons une première consultation vers <span class="faq-em">7-8 ans</span>.</p></div></div>
+                <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span>Comment se passe la prise en charge par l'assurance maladie ?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>La Sécurité Sociale accorde un remboursement pour les traitements d'orthodontie à condition qu'ils soient débutés <span class="faq-em">avant l'âge de 16 ans</span>. Les adultes ne bénéficient généralement pas d'une couverture, mais certaines mutuelles proposent des remboursements partiels.</p></div></div>
+                <div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)"><span>Combien de temps dure un traitement orthodontique ?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>La Sécurité Sociale accorde un remboursement jusqu'à 3 ans de traitement. Mais chaque cas est unique, et donc la durée du traitement est variable. Elle est surtout fonction du type de malocclusion, de l'appareillage, des objectifs de traitement, de la coopération du patient dans son assiduité aux rendez-vous et dans le port des élastiques. Une estimation vous sera donnée lors de l'explication du plan de traitement.</p></div></div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ═══ CARTE GOOGLE MAPS ═══ -->
+    <div class="footer-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3013.284395354239!2d5.719859276304863!3d45.18890445176477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478af48f52098987%3A0x268ad4a8839db12c!2zRHIgUHLDqXbDqSBNYXJpZS1Iw6xsw6xuZSBldCBEciBQcsOpdsOpIFNpbW9u!5e1!3m2!1sfr!2sfr!4v1773996629799!5m2!1sfr!2sfr"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Cabinet d'Orthodontie des Docteurs Prévé — Grenoble">
+        </iframe>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -257,17 +278,17 @@
                     <span class="ft-icon">🚲</span>
                     <div><strong>Mobilités douces</strong><span>Parking à trottinette au cabinet</span></div>
                 </div>
-                <div class="footer-contact-item">📞 <a href="tel:0476463805">04 76 46 38 05</a></div>
+                <div class="footer-contact-item"><a href="tel:0476463805"><span class="fc-icon">📞</span> 04 76 46 38 05</a></div>
                 <div class="footer-transport-item">
                     <span class="ft-icon">🚌</span>
                     <div><strong>Bus C1 — Tram A, B, C</strong><span>Arrêt Alsace-Lorraine</span></div>
                 </div>
-                <div class="footer-contact-item">✉️ <a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a></div>
+                <div class="footer-contact-item"><a href="mailto:contact@orthopreve.com"><span class="fc-icon">✉️</span> contact@orthopreve.com</a></div>
                 <div class="footer-transport-item">
                     <span class="ft-icon">🚗</span>
                     <div><strong>Voiture</strong><span>Parking K'Store — Av. Philippeville</span></div>
                 </div>
-                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><a href="https://www.google.com/maps/dir/?api=1&destination=3+Avenue+Alsace-Lorraine+38000+Grenoble&destination_place_id=ChIJh4kJUo9KiUcREsGtg6ikgCY" target="_blank" rel="noopener" style="transition:color 0.3s;">3 Avenue Alsace-Lorraine<br>38000 Grenoble</a></div>
+                <div class="footer-contact-item"><a href="https://www.google.com/maps/dir/?api=1&destination=3+Avenue+Alsace-Lorraine+38000+Grenoble&destination_place_id=ChIJh4kJUo9KiUcREsGtg6ikgCY" target="_blank" rel="noopener"><span class="fc-icon">📍</span><span>3 Avenue Alsace-Lorraine<br>38000 Grenoble</span></a></div>
             </div>
             <div class="footer-section">
                 <h5>Horaires</h5>
@@ -279,10 +300,25 @@
                     <li data-days="6,0">Samedi–Dimanche : Fermé</li>
                 </ul>
             </div>
-            <div class="footer-badge"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></div>
+            <div class="footer-badge"><a href="traitements.html#faq-specialiste" title="Pourquoi consulter un orthodontiste spécialiste qualifié ?"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></a></div>
         </div>
-        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ. Tous droits réservés.</p><p style="margin-top:0.5rem; font-size:0.85rem;"><a href="mentions-legales.html" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Mentions légales</a> · <a href="accessibilite.html" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Accessibilité</a> · <a href="javascript:void(0)" onclick="document.getElementById('cookieBanner').style.display='flex'" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Gérer les cookies</a> · <a href="https://www.ordre-chirurgiens-dentistes.fr/annuaire/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Annuaire de l'Ordre</a></p></div>
+        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ — Tous droits réservés · <a href="mentions-legales.html">Mentions légales</a> · <a href="accessibilite.html">Accessibilité</a> · <a href="javascript:void(0)" onclick="document.getElementById('cookieBanner').style.display='flex'">Gérer les cookies</a> · <a href="https://www.ordre-chirurgiens-dentistes.fr/annuaire/" target="_blank" rel="noopener">Annuaire de l'Ordre</a></p></div>
     </footer>
+
+    <script>
+        // La carte Google Maps comble l'écran : carte + footer = hauteur du viewport
+        (function() {
+            var mapEl = document.querySelector('.footer-map');
+            var footEl = document.querySelector('footer');
+            if (!mapEl || !footEl) return;
+            function fitMap() {
+                mapEl.style.height = (window.innerHeight - footEl.offsetHeight) + 'px';
+            }
+            fitMap();
+            window.addEventListener('resize', fitMap);
+            window.addEventListener('load', fitMap);
+        })();
+    </script>
 
     <script>
         const navbar = document.getElementById('navbar');
@@ -300,13 +336,31 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+        // Une seule bulle ouverte à la fois par colonne
         function toggleFAQ(button) {
             const answer = button.nextElementSibling;
-            document.querySelectorAll('.faq-answer').forEach(a => { if (a !== answer) a.classList.remove('active'); });
-            document.querySelectorAll('.faq-question').forEach(q => { if (q !== button) q.classList.remove('active'); });
+            const col = button.closest('.faq-col') || document;
+            col.querySelectorAll('.faq-answer').forEach(a => { if (a !== answer) a.classList.remove('active'); });
+            col.querySelectorAll('.faq-question').forEach(q => { if (q !== button) q.classList.remove('active'); });
             answer.classList.toggle('active');
             button.classList.toggle('active');
         }
+
+        // Ouverture automatique de la FAQ « spécialiste qualifié » via l'ancre #faq-specialiste
+        function openFaqFromHash() {
+            if (location.hash !== '#faq-specialiste') return;
+            var item = document.getElementById('faq-specialiste');
+            if (!item) return;
+            var q = item.querySelector('.faq-question');
+            if (q && !q.classList.contains('active')) toggleFAQ(q);
+            setTimeout(function() {
+                var nav = document.getElementById('navbar');
+                var y = item.getBoundingClientRect().top + window.scrollY - (nav ? nav.offsetHeight : 0) - 20;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }, 200);
+        }
+        window.addEventListener('DOMContentLoaded', openFaqFromHash);
+        window.addEventListener('hashchange', openFaqFromHash);
 </script>
     
     <script>

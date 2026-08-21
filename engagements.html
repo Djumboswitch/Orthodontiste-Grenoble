@@ -12,7 +12,7 @@
     <meta property="og:url" content="https://www.preve-orthodontiste-grenoble.fr/engagements.html">
     <meta property="og:site_name" content="Cabinet d'Orthodontie des Docteurs PRÉVÉ">
     <meta property="og:locale" content="fr_FR">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=League+Spartan:wght@600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
@@ -71,11 +71,23 @@
             </div>
         </div>
     </nav>
+    <header class="masthead">
+        <p class="masthead-title">Cabinet d'Orthodontie des Docteurs Prévé<span>Orthodontistes à Grenoble — 38000</span></p>
+        <hr class="masthead-rule">
+    </header>
+
         <ul class="nav-menu" id="navMenu">
             <li class="nav-cta-mobile"><a href="contact.html" class="btn btn-primary">Prendre Rendez-vous</a></li>
             <li><a href="cabinet.html">Le Cabinet</a></li>
             <li><a href="equipe.html">L'Équipe</a></li>
-            <li><a href="traitements.html">Traitements</a></li>
+            <li class="nav-dropdown"><a href="traitements.html">Traitements</a>
+                <ul class="nav-submenu">
+                    <li><a href="traitement-multibagues.html">Multi-bagues métal &amp; céramique</a></li>
+                    <li><a href="traitement-aligneurs.html">Aligneurs dentaires</a></li>
+                    <li><a href="traitement-lingual.html">Orthodontie linguale</a></li>
+                    <li><a href="traitement-disjoncteur.html">Orthopédie : le disjoncteur</a></li>
+                </ul>
+            </li>
             <li><a href="engagements.html" class="active">Engagements Durables</a></li>
             <li><a href="ressources.html">Ressources</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -98,6 +110,28 @@
     </section>
 
     <main class="eco">
+
+      <!-- LE SAVIEZ-VOUS ? — objectifs de développement durable -->
+      <section class="eco-intro reveal deco deco-grid" id="saviez-vous">
+        <h2 class="eco-h2">Le saviez-vous&nbsp;?</h2>
+        <div class="eco-know">
+          <div class="eco-card eco-know-text">
+            <p>Nous recherchons activement des solutions écologiques et technologiques pour réduire le nombre de déchets générés dans notre cabinet, et ainsi réduire notre empreinte écologique. Pour ce faire, nos objectifs sont directement issus et inspirés des <a href="https://www.un.org/sustainabledevelopment/fr/objectifs-de-developpement-durable/" target="_blank" rel="noopener">objectifs de développement durable des Nations Unies</a>. Ils sont appelés à être réévalués chaque année&nbsp;: n'hésitez pas à nous faire des propositions.</p>
+          </div>
+          <figure class="eco-card"><img src="img/eco/odd-13-climat.jpg" alt="Objectif de développement durable 13 — Mesures relatives à la lutte contre les changements climatiques" loading="lazy"></figure>
+          <figure class="eco-card"><img src="img/eco/odd-12-consommation.png" alt="Objectif de développement durable 12 — Consommation et production responsables" loading="lazy"></figure>
+          <figure class="eco-card"><img src="img/eco/odd-3-sante.png" alt="Objectif de développement durable 3 — Bonne santé et bien-être" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <!-- 39 MESURES — introduction -->
+      <section class="eco-intro reveal" id="mesures">
+        <h2 class="eco-h2">39 mesures relatives à la lutte contre le changement climatique</h2>
+        <div class="eco-card eco-lead">
+          <p>Notre objectif est clair&nbsp;: <strong>réduire les déchets</strong> produits par le cabinet et trouver des <strong>alternatives</strong> plus respectueuses de l'environnement à notre pratique actuelle.</p>
+          <p>Il n'existe encore ni recommandations ni réglementations de la part de nos institutions pour réduire notre impact environnemental en orthodontie. Les mesures mises en place au cabinet sont donc le fruit de nos propres recherches. En voici la liste détaillée et exhaustive&nbsp;:</p>
+        </div>
+      </section>
 
       <div class="eco-wrap">
           <div class="eco-row">
@@ -407,7 +441,7 @@
           <div class="eco-row">
             <svg class="eco-hex" viewBox="0 0 60 60" aria-hidden="true"><polygon points="30,2 53.5,16 53.5,44 30,58 6.5,44 6.5,16" fill="#fff" stroke="#EF8F6A" stroke-width="3"/><text x="30" y="39" text-anchor="middle" font-family="'League Spartan',sans-serif" font-weight="700" font-size="22" fill="#13100e">39</text></svg>
             <img class="eco-mi" src="img/eco/measure-39.png" alt="" loading="lazy">
-            <div class="eco-name">Boîtes de contention en aluminium recyclé (vs plastique)</div>
+            <div class="eco-name">Boîtes de contention en plastique ou aluminium recyclés (vs plastique neuf)</div>
             <svg class="eco-arrow" viewBox="0 0 48 30" aria-hidden="true"><path d="M2 12 H29 V5 L46 15 L29 25 V18 H2 Z" fill="#EF8F6A"/></svg>
             <div class="eco-benefit">Moins de déchets plastiques produits</div>
             <img class="eco-bi" src="img/eco/benefit-39.png" alt="" loading="lazy">
@@ -428,7 +462,43 @@
           <img src="img/eco/sources-book.png" alt="Guide du cabinet dentaire écoresponsable">
         </div>
       </section>
+
+      <!-- VERS UNE PRODUCTION ET UNE CONSOMMATION PLUS RESPONSABLES -->
+      <section class="eco-intro reveal deco deco-intro" id="consommation-responsable">
+        <h2 class="eco-h2">Vers une production et une consommation plus responsables</h2>
+        <div class="eco-duo">
+          <div class="eco-card eco-duo-text">
+            <p>Malgré nos efforts individuels pour changer nos mauvaises habitudes, nous avons bien conscience que ce n'est pas suffisant, et qu'une action collective est nécessaire pour avoir un véritable impact.</p>
+            <p>D'après le National Health Service (NHS) anglais, les achats de consommables et de matériels sont la première source de pollution dans les cabinets dentaires. Dès lors, nous nous engageons à travailler — dans la mesure du possible — avec des <strong>fournisseurs locaux, français, labellisés et/ou qui intègrent la Responsabilité Sociétale des Entreprises (RSE)</strong> au cœur de leurs activités quotidiennes.</p>
+            <p>De plus, afin d'assurer la durabilité et la continuité de nos actions, nous participons financièrement à des études qui ont pour but de calculer le Bilan Carbone (BC) et l'Analyse du Cycle de Vie (ACV) des différentes pratiques orthodontiques.</p>
+            <a class="eco-btn" href="https://www.okpal.com/impact-orthodontie/" target="_blank" rel="noopener">Pour plus d'informations, cliquez sur ce lien</a>
+          </div>
+          <figure class="eco-card eco-duo-img"><img src="img/eco/labels-fournisseurs.jpg" alt="Labels de nos fournisseurs : Origine France Garantie, FSC, Émissions dans l'air intérieur A+ et Écolabel européen" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <!-- BONNE SANTÉ ET BIEN-ÊTRE — AOI -->
+      <section class="eco-intro eco-last reveal deco deco-grid" id="bonne-sante">
+        <h2 class="eco-h2">Bonne santé et bien-être</h2>
+        <div class="eco-duo">
+          <div class="eco-card eco-duo-text">
+            <p>Dans le cadre d'une pratique plus éthique et sociale de l'orthodontie, notre équipe est particulièrement attachée à sa participation mensuelle à l'<a href="https://aoi-fr.org/" target="_blank" rel="noopener">Aide Odontologique Internationale (AOI)</a>, qui a pour but d'assurer l'accès aux soins dentaires dans les pays en développement.</p>
+          </div>
+          <figure class="eco-card eco-duo-img"><img src="img/eco/logo-aoi.png" alt="Logo de l'Aide Odontologique Internationale (AOI), association reconnue d'utilité publique" loading="lazy"></figure>
+        </div>
+      </section>
     </main>
+
+    <!-- ═══ CARTE GOOGLE MAPS ═══ -->
+    <div class="footer-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3013.284395354239!2d5.719859276304863!3d45.18890445176477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478af48f52098987%3A0x268ad4a8839db12c!2zRHIgUHLDqXbDqSBNYXJpZS1Iw6xsw6xuZSBldCBEciBQcsOpdsOpIFNpbW9u!5e1!3m2!1sfr!2sfr!4v1773996629799!5m2!1sfr!2sfr"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Cabinet d'Orthodontie des Docteurs Prévé — Grenoble">
+        </iframe>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -439,17 +509,17 @@
                     <span class="ft-icon">🚲</span>
                     <div><strong>Mobilités douces</strong><span>Parking à trottinette au cabinet</span></div>
                 </div>
-                <div class="footer-contact-item">📞 <a href="tel:0476463805">04 76 46 38 05</a></div>
+                <div class="footer-contact-item"><a href="tel:0476463805"><span class="fc-icon">📞</span> 04 76 46 38 05</a></div>
                 <div class="footer-transport-item">
                     <span class="ft-icon">🚌</span>
                     <div><strong>Bus C1 — Tram A, B, C</strong><span>Arrêt Alsace-Lorraine</span></div>
                 </div>
-                <div class="footer-contact-item">✉️ <a href="mailto:contact@orthopreve.com">contact@orthopreve.com</a></div>
+                <div class="footer-contact-item"><a href="mailto:contact@orthopreve.com"><span class="fc-icon">✉️</span> contact@orthopreve.com</a></div>
                 <div class="footer-transport-item">
                     <span class="ft-icon">🚗</span>
                     <div><strong>Voiture</strong><span>Parking K'Store — Av. Philippeville</span></div>
                 </div>
-                <div class="footer-contact-item" style="align-items:flex-start;"><span>📍</span><a href="https://www.google.com/maps/dir/?api=1&destination=3+Avenue+Alsace-Lorraine+38000+Grenoble&destination_place_id=ChIJh4kJUo9KiUcREsGtg6ikgCY" target="_blank" rel="noopener" style="transition:color 0.3s;">3 Avenue Alsace-Lorraine<br>38000 Grenoble</a></div>
+                <div class="footer-contact-item"><a href="https://www.google.com/maps/dir/?api=1&destination=3+Avenue+Alsace-Lorraine+38000+Grenoble&destination_place_id=ChIJh4kJUo9KiUcREsGtg6ikgCY" target="_blank" rel="noopener"><span class="fc-icon">📍</span><span>3 Avenue Alsace-Lorraine<br>38000 Grenoble</span></a></div>
             </div>
             <div class="footer-section">
                 <h5>Horaires</h5>
@@ -461,10 +531,25 @@
                     <li data-days="6,0">Samedi–Dimanche : Fermé</li>
                 </ul>
             </div>
-            <div class="footer-badge"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></div>
+            <div class="footer-badge"><a href="traitements.html#faq-specialiste" title="Pourquoi consulter un orthodontiste spécialiste qualifié ?"><img src="img/Ordre-National-des-Chirurgiens-Dentistes-specialite-orthodontiste-726x1024.png" alt="Spécialiste Qualifié Orthodontiste"></a></div>
         </div>
-        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ. Tous droits réservés.</p><p style="margin-top:0.5rem; font-size:0.85rem;"><a href="mentions-legales.html" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Mentions légales</a> · <a href="accessibilite.html" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Accessibilité</a> · <a href="javascript:void(0)" onclick="document.getElementById('cookieBanner').style.display='flex'" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Gérer les cookies</a> · <a href="https://www.ordre-chirurgiens-dentistes.fr/annuaire/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.7); text-decoration:underline;">Annuaire de l'Ordre</a></p></div>
+        <div class="footer-bottom"><p>&copy; 2026 Cabinet d'Orthodontie des Docteurs PRÉVÉ — Tous droits réservés · <a href="mentions-legales.html">Mentions légales</a> · <a href="accessibilite.html">Accessibilité</a> · <a href="javascript:void(0)" onclick="document.getElementById('cookieBanner').style.display='flex'">Gérer les cookies</a> · <a href="https://www.ordre-chirurgiens-dentistes.fr/annuaire/" target="_blank" rel="noopener">Annuaire de l'Ordre</a></p></div>
     </footer>
+
+    <script>
+        // La carte Google Maps comble l'écran : carte + footer = hauteur du viewport
+        (function() {
+            var mapEl = document.querySelector('.footer-map');
+            var footEl = document.querySelector('footer');
+            if (!mapEl || !footEl) return;
+            function fitMap() {
+                mapEl.style.height = (window.innerHeight - footEl.offsetHeight) + 'px';
+            }
+            fitMap();
+            window.addEventListener('resize', fitMap);
+            window.addEventListener('load', fitMap);
+        })();
+    </script>
 
     <script>
         const navbar = document.getElementById('navbar');
