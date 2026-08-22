@@ -331,7 +331,7 @@
         // Bloquer scroll et interactions sur le fond du menu mobile
         (function(){
             var menu = document.getElementById('navMenu');
-            menu.addEventListener('touchmove', function(e){ e.preventDefault(); }, { passive: false });
+            menu.addEventListener('touchmove', function(e){ if (menu.scrollHeight <= menu.clientHeight) e.preventDefault(); }, { passive: false });
             menu.addEventListener('click', function(e){ if (e.target === menu) { e.stopPropagation(); e.preventDefault(); } });
         })();
     </script>

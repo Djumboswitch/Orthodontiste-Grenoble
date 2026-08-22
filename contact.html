@@ -702,7 +702,7 @@
 
             // Bloquer tout scroll tactile quand le menu est ouvert
             menu.addEventListener('touchmove', function(e){
-                e.preventDefault();
+                if (menu.scrollHeight <= menu.clientHeight) e.preventDefault();
             }, { passive: false });
 
             // Empêcher que toucher le fond du menu ne déclenche quoi que ce soit

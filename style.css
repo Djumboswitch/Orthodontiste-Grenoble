@@ -449,13 +449,16 @@ body.menu-open { overflow: hidden; width: 100%; }
     nav.near-footer .hamburger span { background: var(--dark-green) !important; }
     nav.near-footer .nav-logo img { background: white !important; box-shadow: 0 0 0 4px white !important; }
     .nav-flags { display: none; }
-    .nav-flags-mobile { display: flex; gap: 1rem; justify-content: center; list-style: none; margin-top: 2rem; padding-top: 0; border-top: none; }
+    .nav-flags-mobile { display: flex; gap: 1rem; justify-content: center; list-style: none; margin-top: 0.5rem; padding-top: 0; border-top: none; }
     .nav-flags-mobile .nav-lang-btn { width: 42px; height: 28px; }
-    .nav-menu { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh; transform: none; z-index: 1001; background: rgba(30, 86, 49, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; padding: 2rem; opacity: 0; transition: opacity 0.3s ease; border-radius: 0; box-shadow: none; overflow: hidden; }
+    .nav-menu { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh; transform: none; z-index: 1001; background: rgba(30, 86, 49, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); flex-direction: column; justify-content: flex-start; align-items: center; gap: 2rem; gap: min(2rem, 3.2dvh); padding: calc(66px + 2.4rem) 2rem 1.5rem; opacity: 0; transition: opacity 0.3s ease; border-radius: 0; box-shadow: none; overflow-y: auto; overscroll-behavior: contain; }
     .nav-menu.open { display: flex; opacity: 1; }
+    /* Centrage sûr : marges auto = contenu centré s'il tient, ancré en haut sinon */
+    .nav-menu > li:first-child { margin-top: auto; }
+    .nav-menu > li:last-child { margin-bottom: auto; }
     .nav-menu a { color: white !important; font-size: 1.6rem !important; font-weight: 300 !important; letter-spacing: 0.05em; text-shadow: none !important; border-bottom: none !important; transition: color 0.3s ease; }
     .nav-menu a:hover { color: var(--gold) !important; }
-    .nav-cta-mobile { display: block; list-style: none; margin-bottom: 1.5rem; }
+    .nav-cta-mobile { display: block; list-style: none; }
     .nav-cta-mobile .btn { font-size: 1.1rem !important; font-weight: 600 !important; padding: 1rem 2.5rem; border-radius: 50px; letter-spacing: 0.03em; color: var(--dark-green) !important; text-shadow: none !important; }
     .hamburger { display: flex; z-index: 1002; position: relative; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -762,9 +765,12 @@ body {
     #navbar.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.10) !important; }
     #navbar .hamburger span { background: var(--dark-green) !important; }
     #navbar .hamburger.active span { background: #fff !important; }
-    .masthead { padding: calc(66px + 2.2rem) 1.2rem 0; }
-    .masthead h1, .masthead .masthead-title { font-size: 1.35rem; letter-spacing: 0.08em; margin-bottom: 1.2rem; }
-    .masthead h1 span, .masthead .masthead-title span { font-size: 1.05rem; }
+    /* Le titre s'insere dans la barre fixe, entre le logo et le bouton menu */
+    body { padding-top: calc(66px + 1.6rem); }
+    .masthead { position: fixed; top: 0; left: calc(1rem + 66px + 0.7rem); right: calc(1rem + 35px + 0.7rem); height: calc(66px + 1.6rem); display: flex; align-items: center; justify-content: center; padding: 0; z-index: 1002; pointer-events: none; background: transparent; }
+    .masthead h1, .masthead .masthead-title { font-size: 0.74rem; letter-spacing: 0.05em; margin-bottom: 0; line-height: 1.4; }
+    .masthead h1 span, .masthead .masthead-title span { font-size: 0.66rem; margin-top: 0.2em; }
+    .masthead-rule { display: none; }
     .hero { margin-top: 0; height: 58vh; min-height: 360px; }
     /* Photo de la plaque : sujet a droite, on recadre dessus en portrait */
     .hero .slide-plaque { background-position: 78% center; }
