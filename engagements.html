@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="Cabinet d'Orthodontie des Docteurs PRÉVÉ">
     <meta property="og:locale" content="fr_FR">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260822g">
+    <link rel="stylesheet" href="style.css?v=20260822h">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
@@ -643,6 +643,19 @@
 (function(){ if(!localStorage.getItem("cookieConsent")){document.getElementById("cookieBanner").style.display="flex";} })();
 function acceptCookies(){localStorage.setItem("cookieConsent","accepted");document.getElementById("cookieBanner").style.display="none";}
 function refuseCookies(){localStorage.setItem("cookieConsent","refused");document.getElementById("cookieBanner").style.display="none";}
+</script>
+<script>
+(function(){
+    // Header escamotable sur mobile : cache au defilement descendant, montre en remontant
+    var lastY = window.scrollY;
+    window.addEventListener('scroll', function(){
+        if (document.body.classList.contains('menu-open')) return;
+        var y = window.scrollY;
+        if (y > lastY + 6 && y > 140) document.body.classList.add('header-hidden');
+        else if (y < lastY - 6 || y <= 140) document.body.classList.remove('header-hidden');
+        lastY = y;
+    }, { passive: true });
+})();
 </script>
 </body>
 </html>

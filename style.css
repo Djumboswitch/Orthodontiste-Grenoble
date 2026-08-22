@@ -768,10 +768,12 @@ body {
     #navbar .hamburger.active span { background: var(--dark-green) !important; }
     /* Le titre s'insere dans la barre fixe, entre le logo et le bouton menu */
     body { padding-top: calc(66px + 1.6rem + env(safe-area-inset-top, 0px)); }
-    .masthead { position: fixed; top: env(safe-area-inset-top, 0px); left: calc(1rem + 66px + 0.7rem); right: calc(1rem + 35px + 0.7rem); height: calc(66px + 1.6rem); display: flex; align-items: center; justify-content: center; padding: 0; z-index: 1002; pointer-events: none; background: transparent; }
+    .masthead { transition: transform 0.3s ease; position: fixed; top: env(safe-area-inset-top, 0px); left: calc(1rem + 66px + 0.7rem); right: calc(1rem + 35px + 0.7rem); height: calc(66px + 1.6rem); display: flex; align-items: center; justify-content: center; padding: 0; z-index: 1002; pointer-events: none; background: transparent; }
     .masthead h1, .masthead .masthead-title { font-size: 0.74rem; letter-spacing: 0.05em; margin-bottom: 0; line-height: 1.4; }
     .masthead h1 span, .masthead .masthead-title span { font-size: 0.66rem; margin-top: 0.2em; }
     .masthead-rule { display: none; }
+    /* Header escamotable : masque en defilant vers le bas, reapparait en remontant */
+    body.header-hidden nav, body.header-hidden .masthead { transform: translateY(-130%); }
     .hero { margin-top: 0; height: 58vh; min-height: 360px; }
     /* Photo de la plaque : sujet a droite, on recadre dessus en portrait */
     .hero .slide-plaque { background-position: 78% center; }
