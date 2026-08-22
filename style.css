@@ -20,7 +20,7 @@ nav.scrolled { background: var(--dark-green); padding: 0.8rem 2rem; }
 .nav-logo img { width: 66px; height: 66px; border-radius: 50%; object-fit: contain; transition: all 0.3s ease; background: white; box-shadow: 0 0 0 4px white; }
 nav.scrolled .nav-logo img { width: 52px; height: 52px; background: white; box-shadow: 0 0 0 4px white; }
 .nav-menu { display: flex; gap: 1.4rem; align-items: center; list-style: none; position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1003; height: calc(66px + 2rem); transition: height 0.3s ease; white-space: nowrap; }
-nav.scrolled ~ .nav-menu { height: calc(52px + 1.6rem); }
+@media (min-width: 769px) { nav.scrolled ~ .nav-menu { height: calc(52px + 1.6rem); } }
 .nav-menu a { text-decoration: none; color: rgba(255,255,255,0.95); font-weight: 600; font-size: 0.88rem; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: all 0.3s ease; white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
 .nav-cta-mobile { display: none; }
 .nav-menu a:hover, .nav-menu a.active { color: var(--gold); border-bottom-color: var(--gold); }
@@ -166,6 +166,7 @@ section.alt-bg { background-color: #F5F2ED; }
 .timeline-item p { font-size: 0.95rem; color: var(--text-light); }
 
 /* PARCOURS TIMELINE HORIZONTAL */
+.parcours-section { padding: 2rem 2rem 12rem; background: #F8FAF9; }
 .parcours-timeline {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -435,7 +436,7 @@ footer { background: var(--dark-green); color: white; padding: 2rem 0 1.2rem; }
 }
 
 /* RESPONSIVE */
-body.menu-open { overflow: hidden; position: fixed; width: 100%; }
+body.menu-open { overflow: hidden; width: 100%; }
 @media (max-width: 768px) {
     *, *::before, *::after { max-width: 100%; box-sizing: border-box; }
     h1 { font-size: 2.5rem; } h2 { font-size: 2rem; } h3 { font-size: 1.5rem; }
@@ -448,14 +449,13 @@ body.menu-open { overflow: hidden; position: fixed; width: 100%; }
     nav.near-footer .hamburger span { background: var(--dark-green) !important; }
     nav.near-footer .nav-logo img { background: white !important; box-shadow: 0 0 0 4px white !important; }
     .nav-flags { display: none; }
-    .nav-hide-mobile { display: none; }
     .nav-flags-mobile { display: flex; gap: 1rem; justify-content: center; list-style: none; margin-top: 2rem; padding-top: 0; border-top: none; }
     .nav-flags-mobile .nav-lang-btn { width: 42px; height: 28px; }
     .nav-menu { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh; transform: none; z-index: 1001; background: rgba(30, 86, 49, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; padding: 2rem; opacity: 0; transition: opacity 0.3s ease; border-radius: 0; box-shadow: none; overflow: hidden; }
     .nav-menu.open { display: flex; opacity: 1; }
     .nav-menu a { color: white !important; font-size: 1.6rem !important; font-weight: 300 !important; letter-spacing: 0.05em; text-shadow: none !important; border-bottom: none !important; transition: color 0.3s ease; }
     .nav-menu a:hover { color: var(--gold) !important; }
-    .nav-cta-mobile { list-style: none; margin-bottom: 1.5rem; }
+    .nav-cta-mobile { display: block; list-style: none; margin-bottom: 1.5rem; }
     .nav-cta-mobile .btn { font-size: 1.1rem !important; font-weight: 600 !important; padding: 1rem 2.5rem; border-radius: 50px; letter-spacing: 0.03em; color: var(--dark-green) !important; text-shadow: none !important; }
     .hamburger { display: flex; z-index: 1002; position: relative; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -476,6 +476,9 @@ body.menu-open { overflow: hidden; position: fixed; width: 100%; }
     .timeline-dot { left: 0; }
     .parcours-timeline { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     .parcours-timeline::before { display: none; }
+    /* Sur tactile, pas de survol : les descriptions s'affichent dans le flux, sous chaque étape */
+    .parcours-section { padding: 2rem 1.2rem 4rem; }
+    .parcours-step p, .parcours-step:hover p { position: static; opacity: 1; transform: none; width: auto; pointer-events: auto; background: none; border: none; box-shadow: none; padding: 0.5rem 0.2rem 0; font-size: 0.85rem; line-height: 1.5; text-align: center; }
     .eco-pillars, .pillars { grid-template-columns: 1fr; }
     .eng-grid { grid-template-columns: repeat(2, 1fr); }
     .eng-stats { gap: 2.5rem; }
