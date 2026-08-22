@@ -440,7 +440,7 @@ body.menu-open { overflow: hidden; width: 100%; }
 @media (max-width: 768px) {
     *, *::before, *::after { max-width: 100%; box-sizing: border-box; }
     h1 { font-size: 2.5rem; } h2 { font-size: 2rem; } h3 { font-size: 1.5rem; }
-    nav, nav.scrolled { top: -80px; padding: 0.8rem 1rem; padding-top: calc(0.8rem + 80px + env(safe-area-inset-top, 0px)); width: 100%; background: var(--dark-green) !important; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); box-shadow: 0 2px 15px rgba(0,0,0,0.2); }
+    nav, nav.scrolled { padding: 0.8rem 1rem; padding-top: calc(0.8rem + env(safe-area-inset-top, 0px)); width: 100%; background: var(--dark-green) !important; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); box-shadow: 0 2px 15px rgba(0,0,0,0.2); }
     .hero { margin-top: calc(66px + 1.6rem); height: calc(100vh - 66px - 1.6rem); }
     .nav-menu a { color: rgba(255,255,255,0.95) !important; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
     nav .hamburger span, nav.scrolled .hamburger span { background: white !important; }
