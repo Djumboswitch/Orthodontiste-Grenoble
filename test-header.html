@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<title>Test header — page de diagnostic</title>
+<style>
+  body { margin: 0; font-family: -apple-system, sans-serif; background: linear-gradient(#fde8e8, #e8eefd 50%, #eafde8); height: 300vh; }
+  /* Meme technique que le site : barre ancree 80px au-dessus de l'ecran */
+  .bar { position: fixed; top: -80px; left: 0; right: 0; padding-top: calc(12px + 80px + env(safe-area-inset-top, 0px)); padding-bottom: 12px; background: rgba(30,86,49,0.85); color: #fff; text-align: center; font-weight: 600; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 10; }
+  .probe { position: fixed; padding-top: env(safe-area-inset-top, 0px); visibility: hidden; }
+  .info { position: fixed; bottom: 100px; left: 10px; right: 10px; background: rgba(0,0,0,0.85); color: #7CFC00; font: 13px/1.6 monospace; padding: 12px; border-radius: 10px; z-index: 20; white-space: pre-wrap; }
+  h1 { padding-top: 45vh; text-align: center; color: #333; font-weight: 300; }
+</style>
+</head>
+<body>
+<div class="bar">BARRE DE TEST — doit couvrir l'heure et la batterie</div>
+<div class="probe" id="probe"></div>
+<div class="info" id="info"></div>
+<h1>Scrollez un peu, puis faites une capture d'écran</h1>
+<script>
+function upd(){
+  var bar = document.querySelector('.bar').getBoundingClientRect();
+  var probe = getComputedStyle(document.getElementById('probe')).paddingTop;
+  document.getElementById('info').textContent =
+    'env(safe-area-inset-top) = ' + probe +
+    '\nbar.top = ' + Math.round(bar.top) + 'px (attendu : -80)' +
+    '\ninnerHeight = ' + window.innerHeight + ' / screen.height = ' + screen.height +
+    '\nvisualViewport.offsetTop = ' + (window.visualViewport ? window.visualViewport.offsetTop : 'n/a') +
+    '\nscrollY = ' + Math.round(scrollY);
+}
+addEventListener('scroll', upd); addEventListener('resize', upd); setInterval(upd, 800); upd();
+</script>
+</body>
+</html>
