@@ -781,9 +781,11 @@ body {
     .hero .slide-plaque { display: none; }
     .slide-dots .dot:nth-child(4) { display: none; }
     .hero .slide-dots { left: 50%; transform: translateX(-50%); bottom: 1.7rem; }
-    .hero-cta { font-size: 0.6rem; padding: 0.45rem 0.85rem; gap: 0.45rem; }
-    .hero-cta svg { width: 13px; height: 13px; }
-    .hero-cta-doctolib img { height: 12px; }
+    .hero-cta-stack .hero-cta { font-size: 0.6rem; padding: 0.45rem 0.85rem; gap: 0.45rem; }
+    .hero-cta-stack .hero-cta svg { width: 13px; height: 13px; }
+    .hero-cta-stack .hero-cta-doctolib img { height: 12px; }
+    /* Le bouton unique des pages interieures reste grand et bien visible */
+    .inner-hero-cta { font-size: 1.05rem; padding: 0.95rem 2.2rem; }
 }
 
 /* ═══ SOUS-MENU TRAITEMENTS ═══ */
