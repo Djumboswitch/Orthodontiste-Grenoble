@@ -12,3 +12,12 @@ maquettes/
 # Documents de travail internes — déplacés hors du dépôt (../site-fichiers-internes/)
 /À mettre en place/
 /À corriger/
+
+# Page Technologies en préparation — retirer ces 3 lignes pour la mettre en ligne
+/technologies.html
+/img/dentapoche-icon.png
+/img/impression-3d-gouttiere.jpg
+
+# Fiche mini-vis en préparation — retirer cette ligne pour la mettre en ligne
+# (puis réappliquer ../site-fichiers-internes/fiche-mini-vis-integration.patch)
+/fiche-mini-vis.html
